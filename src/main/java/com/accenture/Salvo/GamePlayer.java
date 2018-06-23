@@ -2,6 +2,8 @@ package com.accenture.Salvo;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class GamePlayer {
@@ -21,13 +23,16 @@ public class GamePlayer {
     @JoinColumn(name = "game_id")
     private Game game;
 
+    @OneToMany(mappedBy="gamePlayer", fetch=FetchType.EAGER)
+    Set<Ship> ships = new HashSet<>();
+
     private Date creationDate;
 
     public GamePlayer(){}
 
     public GamePlayer(Player jugador, Game partida){
 
-        this.player = jugador;
+        this.player = jugador; //trate de hacer carpetas y quedo este error, pero no pasa nada??
         this.game = partida;
         this.creationDate = new Date();
     }
