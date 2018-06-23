@@ -38,7 +38,4 @@ public class GamePlayer {
 
     public Long getId(){return Id;}
 
-    public GamePlayer getGamePlayer(){return this;}
-
-
 }

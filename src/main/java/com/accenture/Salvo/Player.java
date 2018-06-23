@@ -14,7 +14,7 @@ import static java.util.stream.Collectors.toList;
 
 //uso entity para guardar en una DB una ID automatica
 //The annotation @Entity tells Spring to create a person table for this class.
-//Usar entity deshabilita el uso normal de una clase java, todo codigo que use la clase tiene que estar conectado a una DB
+//Usar entity deshabilita el uso normal de una clase java, to-do codigo que use la clase tiene que estar conectado a una DB
 @Entity
 public class Player {
 
