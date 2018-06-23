@@ -45,5 +45,7 @@ public class GamePlayer {
 
     public GamePlayer getGamePlayer(){return this;}
 
-
+    public Set<Ship> getShips() {
+        return ships;
+    }
 }

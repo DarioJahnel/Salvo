@@ -26,10 +26,6 @@ public class Ship {
     @JoinColumn(name="gamePlayer_id")
     private GamePlayer gamePlayer;
 
-    public Ship() {
-
-    }
-
     public Long getId() {
         return Id;
     }
@@ -44,5 +40,16 @@ public class Ship {
 
     public GamePlayer getGamePlayer() {
         return gamePlayer;
+    }
+
+    public Ship() {
+
+    }
+
+    public Ship(String tipo, List<String> locations) {
+
+        this.type = tipo;
+        this.location = locations;
+
     }
 }

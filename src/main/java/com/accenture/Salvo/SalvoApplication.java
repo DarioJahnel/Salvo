@@ -1,12 +1,19 @@
 package com.accenture.Salvo;
 
+import com.sun.org.apache.xerces.internal.xs.StringList;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 @SpringBootApplication
@@ -19,7 +26,7 @@ public class SalvoApplication {
 
 	//bean guarda una instancia para uso posterior, significa que se guarda hasat que empieza main y ahi se usa?
 	@Bean
-	public CommandLineRunner initData(PlayerRepository repository, GameRepository game, GamePlayerRepository gameplayer) {
+	public CommandLineRunner initData(PlayerRepository repository, GameRepository game, GamePlayerRepository gameplayer, ShipRepository ship) {
 		//esto devuelve una instancia de commandlinerunner con un metodo run() que ejecuta los saves y se guarda luego
 		//de inicializar tod
 
@@ -53,6 +60,25 @@ public class SalvoApplication {
 			gameplayer.save(gamePlayer1);
 			gameplayer.save(gamePlayer2);
 			gameplayer.save(gamePlayer3);
+
+			//todo: Preguntar si se puede pasar una lista de manera sencilla en un constructor, sin crear una variable y hacer .add
+            //o solamente se puede hacer asi como dice en los recursos de la tarea?
+
+            List<String> lista1 = Arrays.asList("A1","B1");
+            List<String> lista2 = Arrays.asList("A2","B2");
+            List<String> lista3 = Arrays.asList("A3","B3");
+            List<String> lista4 = Arrays.asList("A4","B4");
+
+			Ship barco1 = new Ship("Destructor",lista1);
+			Ship barco2 = new Ship("Velero",lista2);
+            Ship barco3 = new Ship("Mojarrita",lista3);
+            Ship barco4 = new Ship("Cangrejo",lista4);
+
+            ship.save(barco1);
+            ship.save(barco2);
+            ship.save(barco3);
+            ship.save(barco4);
+
 		};
 	}
 	//commandlinerunner se ejecuta antes de que empiece la aplicacion, tambien existe applicationrunner
