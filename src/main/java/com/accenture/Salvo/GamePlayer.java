@@ -43,12 +43,8 @@ public class GamePlayer {
 
     public Long getId(){return Id;}
 
-<<<<<<< HEAD
-=======
-    public GamePlayer getGamePlayer(){return this;}
-
     public Set<Ship> getShips() {
         return ships;
     }
->>>>>>> Ship-ShipRepoTest
+
 }

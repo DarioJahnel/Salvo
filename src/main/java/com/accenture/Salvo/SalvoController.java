@@ -1,6 +1,8 @@
 package com.accenture.Salvo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureOrder;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.*;
@@ -16,6 +18,9 @@ public class SalvoController {
     @Autowired //???, preguntar
     private GameRepository gameRepo;
 
+    @Autowired
+    private GamePlayerRepository gamePlayerRepo;
+
     @RequestMapping("/api/games") //cuando el controlador recibe pedido de url con /api, se ejecuta este metodo
     public List<Object> getAll() {
         return gameRepo.findAll().stream()
@@ -23,6 +28,27 @@ public class SalvoController {
                 .collect(toList());
 
     }
+
+   /* @RequestMapping("/api/game_view/{gameId}") //Recibe una variable ingresada por el usuario o la app en forma de URL
+    public Map<String, Object> findGame(@PathVariable Long gameId) {
+
+        Game game = gameRepo.findOne(gameId);
+
+        return gameDTO(game);
+
+
+    }*/
+
+   @RequestMapping("/api/game_view/{gamePlayerID}")
+   public Map<String,Object> findGamePlayer(@PathVariable Long gamePlayerID){ //todo: ANOTACION, machear lo que esta dentro de llaves, sino no lo reconoce como variable
+       //todo: encontrar el juego que tiene asociado el gameplayerID que me pasan
+
+       GamePlayer gp  = gamePlayerRepo.findOne(gamePlayerID);
+
+       return gameDTO(gp.getGame());
+
+
+   }
 
     private Map<String, Object> gameDTO(Game juego) {
         Map<String, Object> mapa = new HashMap<>();

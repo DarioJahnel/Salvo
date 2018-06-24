@@ -1,0 +1,2 @@
+todo: porque no se me mergeo bien la branch con ships en la master? (un commit fixeando el json se perdio)
+todo: preguntar @autowired, dependencias
