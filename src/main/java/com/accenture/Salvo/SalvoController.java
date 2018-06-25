@@ -29,16 +29,6 @@ public class SalvoController {
 
     }
 
-   /* @RequestMapping("/api/game_view/{gameId}") //Recibe una variable ingresada por el usuario o la app en forma de URL
-    public Map<String, Object> findGame(@PathVariable Long gameId) {
-
-        Game game = gameRepo.findOne(gameId);
-
-        return gameDTO(game);
-
-
-    }*/
-
    @RequestMapping("/api/game_view/{gamePlayerID}")
    public Map<String,Object> findGamePlayer(@PathVariable Long gamePlayerID){ //todo: ANOTACION, machear lo que esta dentro de llaves, sino no lo reconoce como variable
        //todo: encontrar el juego que tiene asociado el gameplayerID que me pasan
@@ -56,6 +46,7 @@ public class SalvoController {
         mapa.put("id", juego.getId());
         mapa.put("created", juego.getDate());
         mapa.put("gamePlayers", gamePlayerList(juego.getGamePlayers()));
+        mapa.put("ships", procesarGamePlayers(juego.getGamePlayers()));
 
         return mapa;
 
@@ -85,6 +76,33 @@ public class SalvoController {
 
         return mapa;
     }
+
+    private List<Object> procesarGamePlayers(Set<GamePlayer> gamePlayerSet){
+
+       return gamePlayerSet.stream().map(this::procesarShips).collect(toList());
+
+    }
+
+    private List<Map> procesarShips(GamePlayer gp){
+
+       return gp.getShips().stream().map(this::shipDTO).collect(toList());
+
+    }
+
+
+    private Map<String,Object> shipDTO(Ship ship){
+
+       Map<String,Object> mapaship = new HashMap<>();
+
+       mapaship.put("type", ship.getType());
+       mapaship.put("locations", ship.getLocation() );
+
+       return mapaship;
+    }
+
+
+
+
 }
 
 
