@@ -46,10 +46,13 @@ public class Ship {
 
     }
 
-    public Ship(String tipo, List<String> locations) {
+    public Ship(String tipo, List<String> locations, GamePlayer gp) {
 
         this.type = tipo;
         this.location = locations;
+        this.gamePlayer = gp;
 
     }
+
+
 }

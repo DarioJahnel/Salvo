@@ -1,5 +1,7 @@
 package com.accenture.Salvo;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
@@ -23,8 +25,11 @@ public class GamePlayer {
     @JoinColumn(name = "game_id")
     private Game game;
 
-    @OneToMany(mappedBy="gamePlayer", fetch=FetchType.EAGER)
-    Set<Ship> ships = new HashSet<>();
+    @OneToMany(mappedBy="gamePlayer",fetch=FetchType.EAGER)
+    Set<Ship> ships;
+
+    @OneToMany(mappedBy="gamePlayer",fetch=FetchType.EAGER)
+    Set<Salvo> salvoes;
 
     private Date creationDate;
 
@@ -32,9 +37,10 @@ public class GamePlayer {
 
     public GamePlayer(Player jugador, Game partida){
 
-        this.player = jugador; //trate de hacer carpetas y quedo este error, pero no pasa nada??
+        this.player = jugador;
         this.game = partida;
         this.creationDate = new Date();
+//        this.ships.addAll(barcos);
     }
 
     public Game getGame(){return game;}
@@ -47,4 +53,7 @@ public class GamePlayer {
         return ships;
     }
 
+    public Set<Salvo> getSalvoes() {
+        return salvoes;
+    }
 }
