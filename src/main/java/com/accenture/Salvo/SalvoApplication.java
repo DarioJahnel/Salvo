@@ -1,6 +1,5 @@
 package com.accenture.Salvo;
 
-import com.sun.org.apache.xerces.internal.xs.StringList;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,9 +7,6 @@ import org.springframework.context.annotation.Bean;
 
 import java.time.Instant;
 import java.util.*;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 
 @SpringBootApplication
@@ -23,7 +19,8 @@ public class SalvoApplication {
 
 	//bean guarda una instancia para uso posterior, significa que se guarda hasat que empieza main y ahi se usa?
 	@Bean
-	public CommandLineRunner initData(PlayerRepository repository, GameRepository game, GamePlayerRepository gameplayer, ShipRepository ship) {
+	public CommandLineRunner initData(PlayerRepository repository, GameRepository game, GamePlayerRepository gameplayer,
+									  ShipRepository ship,SalvoRepository salvo) {
 		//esto devuelve una instancia de commandlinerunner con un metodo run() que ejecuta los saves y se guarda luego
 		//de inicializar tod
 
@@ -67,14 +64,25 @@ public class SalvoApplication {
             List<String> lista4 = Arrays.asList("A4","B4");
 
 			Ship barco1 = new Ship("Destructor",lista1, gamePlayer1);
-			Ship barco2 = new Ship("Velero",lista2, gamePlayer2);
-            Ship barco3 = new Ship("Mojarrita",lista3, gamePlayer3);
+			Ship barco2 = new Ship("Velero",lista2, gamePlayer4);
+            Ship barco3 = new Ship("Mojarrita",lista3, gamePlayer4);
             Ship barco4 = new Ship("Cangrejo",lista4, gamePlayer1);
 
             ship.save(barco1);
             ship.save(barco2);
             ship.save(barco3);
             ship.save(barco4);
+
+			Salvo salvo1 = new Salvo(1,new ArrayList<String>(Arrays.asList("A1")),gamePlayer4);
+			Salvo salvo2 = new Salvo(1,new ArrayList<String>(Arrays.asList("B1")),gamePlayer4);
+			Salvo salvo3 = new Salvo(1,new ArrayList<String>(Arrays.asList("C1")),gamePlayer4);
+			Salvo salvo4 = new Salvo(1,new ArrayList<String>(Arrays.asList("E1")),gamePlayer4);
+
+			salvo.save(salvo1);
+			salvo.save(salvo2);
+			salvo.save(salvo3);
+			salvo.save(salvo4);
+
 
 
 

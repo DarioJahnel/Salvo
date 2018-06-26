@@ -47,12 +47,12 @@ function loadData() {
 
 function isHit(shipLocation,salvoes,playerId) {
   var hit = false;
-  salvoes.forEach(function (salvo) {
-    if(salvo.player != playerId)
-      salvo.locations.forEach(function (location) {
-        if(shipLocation === location)
-          hit = true;
-      });
-  });
-  return hit;
+               salvoes.forEach(function (salvo) {
+                 if(salvo.player != playerId)
+                   salvo.locations.forEach(function (location) {
+                     if(shipLocation === location)
+                       hit = true;
+                   });
+               });
+               return hit;
 }

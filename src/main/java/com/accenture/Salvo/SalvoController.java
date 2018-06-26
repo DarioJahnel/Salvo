@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.*;
+import java.util.stream.Stream;
+
 import static java.util.stream.Collectors.toList;
 
 
@@ -45,10 +47,14 @@ public class SalvoController {
     private Map<String, Object> gameDTO(Game juego, GamePlayer gp) {
         Map<String, Object> mapa = new HashMap<>();
 
+        //consigue un flatmap(o sea que su contenido se junta y se convierte en stream) de streams ??
+        Stream<Salvo> SS = juego.getGamePlayers().stream().flatMap(g-> g.getSalvoes().stream());
+
         mapa.put("id", juego.getId());
         mapa.put("created", juego.getDate());
         mapa.put("gamePlayers", gamePlayerList(juego.getGamePlayers()));
         mapa.put("ships",procesarShips(gp.getShips()) );
+        mapa.put("salvoes",SS.map(this::salvoDTO).collect(toList()));
 
         return mapa;
 
@@ -94,11 +100,19 @@ public class SalvoController {
        return mapa;
     }
 
-
     private Map<String,Object> salvoDTO(Salvo s){
 
+        Map<String,Object> mapa = new HashMap<>();
+
+        mapa.put("turn",s.getTurn());
+        mapa.put("player",s.getGamePlayer().getPlayer().getId());
+        mapa.put("locations",s.getLocation());
+
+        return mapa;
 
     }
+
+
 
 
 }
