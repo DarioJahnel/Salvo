@@ -26,7 +26,7 @@ public class SalvoController {
 //    @RequestMapping("/api/games") //cuando el controlador recibe pedido de url con /api, se ejecuta este metodo
 //    public List<Object> getAll() {
 //        return gameRepo.findAll().stream()
-//                .map(this::gameDTO)
+//                .map(this::metodoadefinir())
 //                .collect(toList());
 //
 //    }
@@ -59,6 +59,7 @@ public class SalvoController {
         return mapa;
 
     }
+
 
     private List<Map> gamePlayerList(Set<GamePlayer> set){
 
