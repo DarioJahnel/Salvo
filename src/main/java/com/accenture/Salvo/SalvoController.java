@@ -95,6 +95,11 @@ public class SalvoController {
     }
 
 
+    private Map<String,Object> salvoDTO(Salvo s){
+
+
+    }
+
 
 }
 

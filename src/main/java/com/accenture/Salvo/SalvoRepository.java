@@ -1,4 +1,9 @@
 package com.accenture.Salvo;
 
-public class SalvoRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
+@RepositoryRestResource
+interface SalvoRepository extends JpaRepository<Salvo, Long> {
+
 }

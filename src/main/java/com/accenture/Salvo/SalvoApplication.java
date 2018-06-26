@@ -77,22 +77,6 @@ public class SalvoApplication {
             ship.save(barco4);
 
 
-//			Set<Ship> barcoLista1 = new HashSet<>();
-//			barcoLista1.add(barco1);
-//			barcoLista1.add(barco3);
-//			barcoLista1.add(barco4);
-//
-//			Set<Ship> barcoLista2 = new HashSet<>();
-//			barcoLista1.add(barco2);
-//			barcoLista1.add(barco1);
-//			barcoLista1.add(barco3);
-//
-//			Set<Ship> barcoLista3 = new HashSet<>();
-//			barcoLista1.add(barco1);
-//			barcoLista1.add(barco3);
-//			barcoLista1.add(barco2);
-
-
 
 		};
 	}

@@ -22,4 +22,31 @@ public class Salvo {
     @JoinColumn(name="gamePlayer_id")
     private GamePlayer gamePlayer;
 
+    public Long getId() {
+        return Id;
+    }
+
+    public int getTurn() {
+        return turn;
+    }
+
+    public List<String> getLocation() {
+        return location;
+    }
+
+    public GamePlayer getGamePlayer() {
+        return gamePlayer;
+    }
+
+    public Salvo(int turn, List<String> location, GamePlayer gp){
+
+        this.turn = turn;
+        this.location = location;
+        this.gamePlayer = gp;
+
+    }
+
+    public Salvo(){}
+
+
 }
