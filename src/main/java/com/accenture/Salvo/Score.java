@@ -21,6 +21,7 @@ public class Score {
     private Date finishDate;
 
     private float total;
+    private float score;
     private int won;
     private int lost;
     private int tied;
@@ -57,6 +58,22 @@ public class Score {
         return tied;
     }
 
+    public Score(Game juego, Player p, float score) {
+
+        this.game = juego;
+        this.player = p;
+        this.score = score;
+
+        this.finishDate = new Date();
+
+    }
+
     public Score() {
     }
+
+    public float getScore() {
+        return score;
+    }
+
+
 }

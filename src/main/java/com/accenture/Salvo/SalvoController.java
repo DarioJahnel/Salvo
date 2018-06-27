@@ -1,5 +1,6 @@
 package com.accenture.Salvo;
 
+import org.aspectj.weaver.patterns.HasMemberTypePatternForPerThisMatching;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,15 +24,54 @@ public class SalvoController {
     @Autowired
     private GamePlayerRepository gamePlayerRepo;
 
-//    @RequestMapping("/api/games") //cuando el controlador recibe pedido de url con /api, se ejecuta este metodo
-//    public List<Object> getAll() {
-//        return gameRepo.findAll().stream()
-//                .map(this::metodoadefinir())
-//                .collect(toList());
-//
-//    }
+    @RequestMapping("/api/games") //cuando el controlador recibe pedido de url con /api, se ejecuta este metodo
+    public Map<String,Object> getAll() {
+        Map<String,Object> mapa = new HashMap<>();
 
-   @RequestMapping("/api/game_view/{gp}")
+        mapa.put("player", null);
+        mapa.put("games",procesarGameRepoApi());
+        return mapa;
+
+    }
+
+    private List<Map> procesarGameRepoApi(){
+
+        Stream<Game> gameStream = gameRepo.findAll().stream();
+
+        return procesarGamesApi(gameStream);
+    }
+
+    private List<Map> procesarGamesApi(Stream<Game> gameStream){
+        return gameStream.map(this::apiGamesDTO).collect(toList());
+    }
+
+    private Map<String,Object> apiGamesDTO(Game juego){
+
+        Map<String,Object> mapa = new HashMap<>();
+
+        mapa.put("id", juego.getId());
+        mapa.put("created", juego.getCreationDate());
+        mapa.put("gamePlayers", procesarGamePlayerApi(juego.getGamePlayers()));
+
+        return mapa;
+    }
+
+    private List<Object> procesarGamePlayerApi(Set<GamePlayer> gp){
+
+        return gp.stream().map(this::gamePlayerApiDTO).collect(toList());
+    }
+
+    private Map<String,Object> gamePlayerApiDTO(GamePlayer gp){
+
+        Map<String,Object> mapa = new HashMap<>();
+
+        mapa.put("id", gp.getId());
+        mapa.put("player",playerDTO(gp.getPlayer()));
+
+        return mapa;
+
+    }
+    @RequestMapping("/api/game_view/{gp}")
    public Map<String,Object> findGamePlayer(@PathVariable Long gp){ //todo: ANOTACION, machear lo que esta dentro de llaves, sino no lo reconoce como variable
        //todo: encontrar el juego que tiene asociado el gameplayerID que me pasan
 
@@ -39,20 +79,20 @@ public class SalvoController {
 
 
 
-       return gameDTO(gplayer.getGame(), gplayer);
+       return game_viewDTO(gplayer.getGame(), gplayer);
 
 
    }
 
-    private Map<String, Object> gameDTO(Game juego, GamePlayer gp) {
+    private Map<String, Object> game_viewDTO(Game juego, GamePlayer gp) {
         Map<String, Object> mapa = new HashMap<>();
 
         //consigue un flatmap(o sea que su contenido se junta y se convierte en stream) de streams ??
         Stream<Salvo> SS = juego.getGamePlayers().stream().flatMap(g-> g.getSalvoes().stream());
 
         mapa.put("id", juego.getId());
-        mapa.put("created", juego.getDate());
-        mapa.put("gamePlayers", gamePlayerList(juego.getGamePlayers()));
+        mapa.put("created", juego.getCreationDate());
+        mapa.put("gamePlayers", procesarGamePlayerView(juego.getGamePlayers()));
         mapa.put("ships",procesarShips(gp.getShips()) );
         mapa.put("salvoes",procesarSalvos(SS)); //ya le paso el stream completo de salvos del game
 
@@ -61,7 +101,7 @@ public class SalvoController {
     }
 
 
-    private List<Map> gamePlayerList(Set<GamePlayer> set){
+    private List<Map> procesarGamePlayerView(Set<GamePlayer> set){
 
         return set.stream().map(this::gamePlayerDTO).collect(toList());
 

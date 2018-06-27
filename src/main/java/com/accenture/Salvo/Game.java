@@ -30,10 +30,6 @@ public class Game {
 
     }
 
-    public Date getDate(){
-        return creationDate;
-    }
-
     public void setDate(Date fecha){
         this.creationDate = fecha;
 
@@ -55,4 +51,6 @@ public class Game {
     public Set<Score> getScore() {
         return score;
     }
+
+
 }

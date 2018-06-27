@@ -20,7 +20,7 @@ public class SalvoApplication {
 	//bean guarda una instancia para uso posterior, significa que se guarda hasat que empieza main y ahi se usa?
 	@Bean
 	public CommandLineRunner initData(PlayerRepository repository, GameRepository game, GamePlayerRepository gameplayer,
-									  ShipRepository ship,SalvoRepository salvo) {
+									  ShipRepository ship,SalvoRepository salvo, ScoreRepository score) {
 		//esto devuelve una instancia de commandlinerunner con un metodo run() que ejecuta los saves y se guarda luego
 		//de inicializar tod
 
@@ -84,6 +84,17 @@ public class SalvoApplication {
 			salvo.save(salvo2);
 			salvo.save(salvo3);
 			salvo.save(salvo4);
+
+			Score score1 = new Score(game2,player1,1f);
+			Score score2 = new Score(game2,player2,0f);
+			Score score3 = new Score(game1,player1,0.5f);
+			Score score4 = new Score(game1,player2,0.5f);
+
+			score.save(score1);
+			score.save(score2);
+			score.save(score3);
+			score.save(score4);
+
 
 
 

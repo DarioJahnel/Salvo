@@ -91,7 +91,12 @@ public class Player {
         return gamePlayers;
     }
 
+    @JsonIgnore
     public Set<Score> getScore() {
         return score;
     }
+
+
+
+
 }
