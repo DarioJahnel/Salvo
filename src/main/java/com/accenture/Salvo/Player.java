@@ -32,6 +32,9 @@ public class Player {
     @OneToMany(mappedBy = "player", fetch = FetchType.EAGER)
     Set<GamePlayer> gamePlayers;
 
+    @OneToMany(mappedBy = "player", fetch = FetchType.EAGER)
+    Set<Score> score;
+
 
     //constructor, todo lo que este aca se ejecuta cuando se crea una nueva instancia del objeto Player
     //es necesario cuando se usa @entity
@@ -84,4 +87,11 @@ public class Player {
 
     public Long getId(){return Id;}
 
+    public Set<GamePlayer> getGamePlayers() {
+        return gamePlayers;
+    }
+
+    public Set<Score> getScore() {
+        return score;
+    }
 }

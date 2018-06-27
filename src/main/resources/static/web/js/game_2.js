@@ -22,9 +22,11 @@ function loadData() {
 
       data.ships.forEach(function (shipPiece) {
         shipPiece.locations.forEach(function (shipLocation) {
-          if(isHit(shipLocation,data.salvoes,playerInfo[0].id)){
+          var hit = -1;
+          hit = isHit(shipLocation,data.salvoes,playerInfo[0].id);
+          if( hit != -1){
             $('#B_' + shipLocation).addClass('ship-piece-hited');
-            $('#B_' + shipLocation).
+            $('#B_' + shipLocation).text(hit);
             }
 
           else
@@ -49,12 +51,12 @@ function loadData() {
 }
 
 function isHit(shipLocation,salvoes,playerId) {
-  var hit = false;
+  var hit = -1;
                salvoes.forEach(function (salvo) {
                  if(salvo.player != playerId)
                    salvo.locations.forEach(function (location) {
                      if(shipLocation === location)
-                       hit = true;
+                       hit = salvo.turn;
                    });
                });
                return hit;

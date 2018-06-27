@@ -54,7 +54,7 @@ public class SalvoController {
         mapa.put("created", juego.getDate());
         mapa.put("gamePlayers", gamePlayerList(juego.getGamePlayers()));
         mapa.put("ships",procesarShips(gp.getShips()) );
-        mapa.put("salvoes",SS.map(this::salvoDTO).collect(toList()));
+        mapa.put("salvoes",procesarSalvos(SS)); //ya le paso el stream completo de salvos del game
 
         return mapa;
 
@@ -101,6 +101,10 @@ public class SalvoController {
        return mapa;
     }
 
+    private List<Map> procesarSalvos(Stream<Salvo> SS){
+
+       return SS.map(this::salvoDTO).collect(toList());
+    }
     private Map<String,Object> salvoDTO(Salvo s){
 
         Map<String,Object> mapa = new HashMap<>();
