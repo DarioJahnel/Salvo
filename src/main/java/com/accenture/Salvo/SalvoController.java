@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.SessionTrackingMode;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -126,14 +128,13 @@ public class SalvoController {
     private Map<String, Object> game_viewDTO(Game juego, GamePlayer gp) {
         Map<String, Object> mapa = new HashMap<>();
 
-        //consigue un flatmap(o sea que su contenido se junta y se convierte en stream) de streams ??
-        Stream<Salvo> SS = juego.getGamePlayers().stream().flatMap(g-> g.getSalvoes().stream());
+
 
         mapa.put("id", juego.getId());
         mapa.put("created", juego.getCreationDate());
         mapa.put("gamePlayers", procesarGamePlayerView(juego.getGamePlayers()));
         mapa.put("ships",procesarShips(gp.getShips()) );
-        mapa.put("salvoes",procesarSalvos(SS)); //ya le paso el stream completo de salvos del game
+        mapa.put("salvoes",procesarSalvos(juego.getGamePlayers())); //ya le paso el stream completo de salvos del game
 
         return mapa;
 
@@ -180,7 +181,9 @@ public class SalvoController {
        return mapa;
     }
 
-    private List<Map> procesarSalvos(Stream<Salvo> SS){
+    private List<Map> procesarSalvos(Set<GamePlayer> gp){
+
+       Stream<Salvo> SS = gp.stream().flatMap(g-> g.getSalvoes().stream());
 
        return SS.map(this::salvoDTO).collect(toList());
     }
