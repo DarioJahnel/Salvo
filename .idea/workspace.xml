@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d119963-8a55-4ff3-990a-0e375ee8f285" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Score.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Score.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/games.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/games.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -65,10 +64,34 @@
       <file leaf-file-name="SalvoController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="151" column="37" lean-forward="true" selection-start-line="151" selection-start-column="37" selection-end-line="151" selection-end-column="37" />
+            <state relative-caret-position="880">
+              <caret line="125" column="16" lean-forward="true" selection-start-line="125" selection-start-column="16" selection-end-line="125" selection-end-column="16" />
               <folding>
                 <element signature="method#getAll#0;class#SalvoController#0" />
+                <element signature="method#procesarGameRepoApi#0;class#SalvoController#0" />
+                <element signature="method#procesarGamesApi#0;class#SalvoController#0" />
+                <element signature="method#apiGamesDTO#0;class#SalvoController#0" />
+                <element signature="method#procesarGamePlayerApi#0;class#SalvoController#0" />
+                <element signature="method#gamePlayerApiDTO#0;class#SalvoController#0" />
+                <element signature="method#scoreListApi#0;class#SalvoController#0" />
+                <element signature="method#scoreDTOApi#0;class#SalvoController#0" />
+                <element signature="method#findGamePlayer#0;class#SalvoController#0" />
+                <element signature="e#2331#2421#0" />
+                <element signature="method#game_viewDTO#0;class#SalvoController#0" />
+                <element signature="method#procesarGamePlayerView#0;class#SalvoController#0" />
+                <element signature="method#gamePlayerDTO#0;class#SalvoController#0" />
+                <element signature="method#playerDTO#0;class#SalvoController#0" />
+                <element signature="method#procesarShips#0;class#SalvoController#0" />
+                <element signature="method#shipDTO#0;class#SalvoController#0" />
+                <element signature="method#procesarSalvos#0;class#SalvoController#0" />
+                <element signature="method#salvoDTO#0;class#SalvoController#0" />
+                <element signature="method#leaderBoard#0;class#SalvoController#0" />
+                <element signature="method#playerListDTO#0;class#SalvoController#0" />
+                <element signature="method#playerScoreDTO#0;class#SalvoController#0" />
+                <element signature="method#playerTotalScore#0;class#SalvoController#0" />
+                <element signature="method#playerWinScore#0;class#SalvoController#0" />
+                <element signature="method#playerLossScore#0;class#SalvoController#0" />
+                <element signature="method#playerTiesScore#0;class#SalvoController#0" />
               </folding>
             </state>
           </provider>
@@ -77,16 +100,39 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            <state relative-caret-position="353">
+              <caret line="50" column="22" selection-start-line="50" selection-start-column="22" selection-end-line="50" selection-end-column="22" />
               <folding>
-                <element signature="e#212#215#0" />
-                <element signature="method#Game#1;class#Game#0" />
-                <element signature="method#setDate#0;class#Game#0" />
-                <element signature="method#getPlayers#0;class#Game#0" />
-                <element signature="method#getId#0;class#Game#0" />
-                <element signature="method#getGamePlayers#0;class#Game#0" />
+                <element signature="e#1040#1041#0" expanded="true" />
+                <element signature="e#1068#1069#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="games_2.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/js/games_2.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="18" column="14" lean-forward="true" selection-start-line="11" selection-end-line="18" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="games.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/games.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="games_2.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/games_2.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="23" lean-forward="true" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -115,6 +161,12 @@
       <find>turn</find>
       <find>jsonigno</find>
       <find>salvoDTO</find>
+      <find>updateViewLBoard</find>
+      <find>htmlList</find>
+      <find>score</find>
+      <find>playerid</find>
+      <find>playerID</find>
+      <find>player</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -502,15 +554,16 @@
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/GamePlayer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Salvo.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/web/js/games_2.js" />
         <option value="$PROJECT_DIR$/src/main/resources/static/web/game_2.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/web/css/game.css" />
         <option value="$PROJECT_DIR$/src/main/resources/static/web/js/game_2.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/ScoreRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Player.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Score.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Game.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Score.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/web/games.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/web/js/games_2.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoController.java" />
       </list>
     </option>
@@ -529,6 +582,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -602,7 +656,6 @@
       </pane>
       <pane id="AndroidView" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -785,7 +838,7 @@
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="6" />
       <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.4621993" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3024055" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="5" />
@@ -856,6 +909,8 @@
           <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2529#2530#0" expanded="true" />
+            <element signature="e#2563#2564#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -999,32 +1054,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/games.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="15" selection-start-column="15" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/games_2.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/game.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1547" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/js/game.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
           <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/js/games_2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="6" column="69" selection-start-line="6" selection-start-column="69" selection-end-line="6" selection-end-column="69" />
         </state>
       </provider>
     </entry>
@@ -1049,24 +1082,10 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/js/jquery-3.3.1.min.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/js/games.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/css/game.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="4" column="15" lean-forward="true" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/game_2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3358">
-          <caret line="146" column="28" selection-end-line="149" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -1094,16 +1113,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="96" lean-forward="true" selection-start-line="96" selection-end-line="96" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/GamePlayer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-343">
@@ -1119,8 +1128,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="92" lean-forward="true" selection-start-line="92" selection-end-line="92" />
+        <state relative-caret-position="374">
+          <caret line="95" column="13" selection-start-line="94" selection-end-line="96" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2529#2530#0" expanded="true" />
@@ -1129,10 +1138,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="962">
+          <caret line="96" lean-forward="true" selection-start-line="96" selection-end-line="96" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Score.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="77" column="4" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="4" />
+        <state relative-caret-position="85">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#558#559#0" expanded="true" />
@@ -1143,34 +1162,92 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Game.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/js/games.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="e#212#215#0" />
-            <element signature="method#Game#1;class#Game#0" />
-            <element signature="method#setDate#0;class#Game#0" />
-            <element signature="method#getPlayers#0;class#Game#0" />
-            <element signature="method#getId#0;class#Game#0" />
-            <element signature="method#getGamePlayers#0;class#Game#0" />
-          </folding>
+        <state>
+          <caret column="14" lean-forward="true" selection-start-column="14" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/js/game_2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
+        <state relative-caret-position="476">
           <caret line="28" column="46" lean-forward="true" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/game.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/game_2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1207">
+          <caret line="77" column="14" lean-forward="true" selection-start-line="77" selection-start-column="14" selection-end-line="77" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/js/games_2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="18" column="14" lean-forward="true" selection-start-line="11" selection-end-line="18" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/games_2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="23" lean-forward="true" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/games.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="50" column="22" selection-start-line="50" selection-start-column="22" selection-end-line="50" selection-end-column="22" />
+          <folding>
+            <element signature="e#1040#1041#0" expanded="true" />
+            <element signature="e#1068#1069#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="151" column="37" lean-forward="true" selection-start-line="151" selection-start-column="37" selection-end-line="151" selection-end-column="37" />
+        <state relative-caret-position="880">
+          <caret line="125" column="16" lean-forward="true" selection-start-line="125" selection-start-column="16" selection-end-line="125" selection-end-column="16" />
           <folding>
             <element signature="method#getAll#0;class#SalvoController#0" />
+            <element signature="method#procesarGameRepoApi#0;class#SalvoController#0" />
+            <element signature="method#procesarGamesApi#0;class#SalvoController#0" />
+            <element signature="method#apiGamesDTO#0;class#SalvoController#0" />
+            <element signature="method#procesarGamePlayerApi#0;class#SalvoController#0" />
+            <element signature="method#gamePlayerApiDTO#0;class#SalvoController#0" />
+            <element signature="method#scoreListApi#0;class#SalvoController#0" />
+            <element signature="method#scoreDTOApi#0;class#SalvoController#0" />
+            <element signature="method#findGamePlayer#0;class#SalvoController#0" />
+            <element signature="e#2331#2421#0" />
+            <element signature="method#game_viewDTO#0;class#SalvoController#0" />
+            <element signature="method#procesarGamePlayerView#0;class#SalvoController#0" />
+            <element signature="method#gamePlayerDTO#0;class#SalvoController#0" />
+            <element signature="method#playerDTO#0;class#SalvoController#0" />
+            <element signature="method#procesarShips#0;class#SalvoController#0" />
+            <element signature="method#shipDTO#0;class#SalvoController#0" />
+            <element signature="method#procesarSalvos#0;class#SalvoController#0" />
+            <element signature="method#salvoDTO#0;class#SalvoController#0" />
+            <element signature="method#leaderBoard#0;class#SalvoController#0" />
+            <element signature="method#playerListDTO#0;class#SalvoController#0" />
+            <element signature="method#playerScoreDTO#0;class#SalvoController#0" />
+            <element signature="method#playerTotalScore#0;class#SalvoController#0" />
+            <element signature="method#playerWinScore#0;class#SalvoController#0" />
+            <element signature="method#playerLossScore#0;class#SalvoController#0" />
+            <element signature="method#playerTiesScore#0;class#SalvoController#0" />
           </folding>
         </state>
       </provider>

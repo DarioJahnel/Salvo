@@ -21,7 +21,7 @@ public class Score {
     private Date finishDate;
 
     private float total;
-    private float score;
+    private double score;
     private int won;
     private int lost;
     private int tied;
@@ -71,7 +71,7 @@ public class Score {
     public Score() {
     }
 
-    public float getScore() {
+    public double getScore() {
         return score;
     }
 

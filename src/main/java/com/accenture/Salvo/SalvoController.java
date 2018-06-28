@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
@@ -24,21 +25,34 @@ public class SalvoController {
     @Autowired
     private GamePlayerRepository gamePlayerRepo;
 
+    @Autowired
+    private PlayerRepository playerRepo;
+
+
+
+
+
+
+
+
+    //API GAMES
+
+
     @RequestMapping("/api/games") //cuando el controlador recibe pedido de url con /api, se ejecuta este metodo
     public Map<String,Object> getAll() {
         Map<String,Object> mapa = new HashMap<>();
 
-        mapa.put("player", null);
-        mapa.put("games",procesarGameRepoApi());
+        mapa.put("player", "guest");
+        mapa.put("games",procesarGamesApi(procesarGameRepoApi()));
+
         return mapa;
 
     }
 
-    private List<Map> procesarGameRepoApi(){
+    private Stream<Game> procesarGameRepoApi(){
 
-        Stream<Game> gameStream = gameRepo.findAll().stream();
+        return gameRepo.findAll().stream();
 
-        return procesarGamesApi(gameStream);
     }
 
     private List<Map> procesarGamesApi(Stream<Game> gameStream){
@@ -52,6 +66,7 @@ public class SalvoController {
         mapa.put("id", juego.getId());
         mapa.put("created", juego.getCreationDate());
         mapa.put("gamePlayers", procesarGamePlayerApi(juego.getGamePlayers()));
+        mapa.put("scores", scoreListApi(juego));
 
         return mapa;
     }
@@ -71,6 +86,30 @@ public class SalvoController {
         return mapa;
 
     }
+
+    private List<Map> scoreListApi(Game juego){
+
+       return juego.getScore().stream().map(this::scoreDTOApi).collect(toList());
+
+    }
+
+    private Map<String,Object> scoreDTOApi(Score s){
+
+        Map<String,Object> mapa = new HashMap<>();
+
+        mapa.put("playerID",s.getPlayer().getId());
+        mapa.put("score",s.getScore());
+        mapa.put("finishDate",s.getFinishDate());
+
+        return mapa;
+
+    }
+
+
+
+    //GAME VIEW
+
+
     @RequestMapping("/api/game_view/{gp}")
    public Map<String,Object> findGamePlayer(@PathVariable Long gp){ //todo: ANOTACION, machear lo que esta dentro de llaves, sino no lo reconoce como variable
        //todo: encontrar el juego que tiene asociado el gameplayerID que me pasan
@@ -158,6 +197,70 @@ public class SalvoController {
     }
 
 
+//    API LeaderBoard JSON
+
+
+    @RequestMapping("/api/leaderBoard")
+    public List<Object> leaderBoard(){
+
+        return playerScoreList();
+
+
+    }
+
+
+    private List<Object> playerScoreList(){
+
+        return playerRepo.findAll().stream().map(this::playerScoreDTO).collect(toList());
+    }
+
+    private Map<String,Object> playerScoreDTO (Player p){
+
+        Map<String,Object> mapa = new HashMap<>();
+        Map<String,Object> mapa2 = new HashMap<>();
+
+        mapa2.put("name",p.getUserName());
+        mapa2.put("score", mapa);
+
+        mapa.put("total",playerTotalScore(p));
+        mapa.put("won",playerWinScore(p));
+        mapa.put("lost",playerLossScore(p));
+        mapa.put("tied" ,playerTiesScore(p));
+
+        return mapa2;
+
+    }
+
+    private double playerTotalScore(Player p){
+
+        double total = 0;
+        total = p.getScore().stream().mapToDouble(s-> s.getScore()).sum();
+        return total;
+    }
+
+    private Long playerWinScore(Player p) {
+
+        Long wins;
+        wins = p.getScore().stream().filter(s -> s.getScore() == 1).count();
+        return wins;
+
+
+    }
+
+    private Long playerLossScore(Player p){
+
+        Long loss;
+        loss = p.getScore().stream().filter(s -> s.getScore() == 0).count();
+        return loss;
+
+    }
+
+    private Long playerTiesScore(Player p){
+
+        Long ties;
+        ties = p.getScore().stream().filter(s -> s.getScore() == 0.5).count();
+        return ties;
+    }
 
 
 }
