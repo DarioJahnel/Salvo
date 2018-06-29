@@ -1,8 +1,20 @@
  #user-panel{
      display:none;
  }
- .foot{
- font-size: 77px;
- }
+.foot{
+    width: 100%;
+	height: auto;
+	margin: auto;
+	background: #272727;
+	padding:30px 0px;
+}
+.foot ul{
+    margin: 0px;
+	padding: 0px;
+	text-align: center;
+}
+.foot ul li{
+display: inline-block;
+	margin: 0px 15px;
+}
 
- 

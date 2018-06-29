@@ -9,3 +9,18 @@
 .salvo{
     background-color: crimson;
 }
+.player-Info{
+    background-color: crimson ;
+    text-align: center;
+    height: 50px;
+    }
+.player-Info span{
+font-size: 25px;}
+.span-img{
+background: url(fuego.jpg)no-repeat center center fixed;
+ -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+
+}
