@@ -8,6 +8,9 @@ import java.util.List;
 @Entity
 public class Ship {
 
+
+
+    //Propiedades
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long Id;
@@ -26,6 +29,23 @@ public class Ship {
     @JoinColumn(name="gamePlayer_id")
     private GamePlayer gamePlayer;
 
+
+    //Constructores
+    public Ship() {
+
+    }
+
+    public Ship(String tipo, List<String> locations, GamePlayer gp) {
+
+        this.type = tipo;
+        this.location = locations;
+        this.gamePlayer = gp;
+
+    }
+
+
+
+    //Getters y setters
     public Long getId() {
         return Id;
     }
@@ -42,17 +62,7 @@ public class Ship {
         return gamePlayer;
     }
 
-    public Ship() {
 
-    }
-
-    public Ship(String tipo, List<String> locations, GamePlayer gp) {
-
-        this.type = tipo;
-        this.location = locations;
-        this.gamePlayer = gp;
-
-    }
 
 
 }

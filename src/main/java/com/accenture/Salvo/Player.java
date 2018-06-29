@@ -18,7 +18,7 @@ import static java.util.stream.Collectors.toList;
 @Entity
 public class Player {
 
-    //Defino atributos
+    //Propiedades
     //The annotation @Id says that the id instance variable holds the database key for this class.
     //poniendo @id tambien persisten todos los otros atributos
     //If there are fields that should not be saved, e.g., because they hold temporary scratch data, annotate them with @Transient.
@@ -36,7 +36,7 @@ public class Player {
     Set<Score> score;
 
 
-    //constructor, todo lo que este aca se ejecuta cuando se crea una nueva instancia del objeto Player
+    //Constructor, to-do lo que este aca se ejecuta cuando se crea una nueva instancia del objeto Player
     //es necesario cuando se usa @entity
 
     public Player() {
@@ -48,6 +48,9 @@ public class Player {
         this.userName = user;
     }
 
+
+
+    //Getters y setters
     public String getFirstName() {
         return firstName;
     }
@@ -63,9 +66,6 @@ public class Player {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
-
-    //get set username
 
     public String getUserName() {
         return userName;

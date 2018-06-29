@@ -10,6 +10,8 @@ import java.util.Set;
 @Entity
 public class GamePlayer {
 
+
+    //Propiedades
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long Id;
@@ -33,6 +35,9 @@ public class GamePlayer {
 
     private Date creationDate;
 
+
+
+    //Constructores
     public GamePlayer(){}
 
     public GamePlayer(Player jugador, Game partida){
@@ -43,6 +48,9 @@ public class GamePlayer {
 //        this.ships.addAll(barcos);
     }
 
+
+
+    //Getters y setters
     public Game getGame(){return game;}
 
     public Player getPlayer(){return player;}

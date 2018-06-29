@@ -11,6 +11,7 @@ import static java.util.stream.Collectors.toList;
 @Entity
 public class Game {
 
+    //Propiedades
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO) //id generacion automatica
     private Long Id;
@@ -23,6 +24,9 @@ public class Game {
     @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
     Set<Score> score;
 
+
+
+    //Constructores
     public Game(){}
 
     public Game(Date fechaahora){
@@ -30,6 +34,9 @@ public class Game {
 
     }
 
+
+
+    //Getters y setters
     public void setDate(Date fecha){
         this.creationDate = fecha;
 

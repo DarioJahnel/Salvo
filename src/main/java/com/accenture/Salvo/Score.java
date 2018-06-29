@@ -6,6 +6,8 @@ import java.util.Date;
 @Entity
 public class Score {
 
+
+    //Propiedades
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long Id;
@@ -20,12 +22,27 @@ public class Score {
 
     private Date finishDate;
 
-    private float total;
     private double score;
-    private int won;
-    private int lost;
-    private int tied;
 
+
+
+    //Constructores
+    public Score(Game juego, Player p, float score) {
+
+        this.game = juego;
+        this.player = p;
+        this.score = score;
+
+        this.finishDate = new Date();
+
+    }
+
+    public Score() {
+    }
+
+
+
+    //Getters y setters
     public Long getId() {
         return Id;
     }
@@ -42,38 +59,11 @@ public class Score {
         return finishDate;
     }
 
-    public float getTotal() {
-        return total;
-    }
-
-    public int getWon() {
-        return won;
-    }
-
-    public int getLost() {
-        return lost;
-    }
-
-    public int getTied() {
-        return tied;
-    }
-
-    public Score(Game juego, Player p, float score) {
-
-        this.game = juego;
-        this.player = p;
-        this.score = score;
-
-        this.finishDate = new Date();
-
-    }
-
-    public Score() {
-    }
-
     public double getScore() {
         return score;
     }
+
+
 
 
 }

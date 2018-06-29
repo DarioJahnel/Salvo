@@ -8,6 +8,9 @@ import java.util.List;
 @Entity
 public class Salvo {
 
+
+
+    //Propiedades
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long Id;
@@ -22,6 +25,22 @@ public class Salvo {
     @JoinColumn(name="gamePlayer_id")
     private GamePlayer gamePlayer;
 
+
+    //Constructores
+    public Salvo(int turn, List<String> location, GamePlayer gp){
+
+        this.turn = turn;
+        this.location = location;
+        this.gamePlayer = gp;
+
+    }
+
+    public Salvo(){}
+
+
+
+
+    //Getters y setters
     public Long getId() {
         return Id;
     }
@@ -38,15 +57,7 @@ public class Salvo {
         return gamePlayer;
     }
 
-    public Salvo(int turn, List<String> location, GamePlayer gp){
 
-        this.turn = turn;
-        this.location = location;
-        this.gamePlayer = gp;
-
-    }
-
-    public Salvo(){}
 
 
 }
