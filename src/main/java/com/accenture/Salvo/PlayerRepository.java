@@ -3,8 +3,9 @@
 
 package com.accenture.Salvo;
 
-import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 
@@ -12,6 +13,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
     @RepositoryRestResource
     public interface PlayerRepository extends JpaRepository<Player, Long> { //jpa repository te deja manipular la tabla?
-        List<Player> findByUserName(String nombre); //esto crea un metodo para buscar por username, parte de spring
+
+        Player findByUserName(@Param("nombre")String nombre); //esto crea un metodo para buscar por username, parte de spring
 
     }

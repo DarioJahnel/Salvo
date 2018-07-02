@@ -2,11 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d119963-8a55-4ff3-990a-0e375ee8f285" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_1_5_15_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_1_5_15_BUILD_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_autoconfigure_1_5_15_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_autoconfigure_1_5_15_BUILD_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_1_5_15_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_1_5_15_BUILD_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_aop_1_5_15_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_aop_1_5_15_BUILD_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_data_jpa_1_5_15_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_data_jpa_1_5_15_BUILD_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_data_rest_1_5_15_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_data_rest_1_5_15_BUILD_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_jdbc_1_5_15_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_jdbc_1_5_15_BUILD_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_logging_1_5_15_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_logging_1_5_15_BUILD_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_test_1_5_15_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_test_1_5_15_BUILD_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_tomcat_1_5_15_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_tomcat_1_5_15_BUILD_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_web_1_5_15_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_web_1_5_15_BUILD_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_test_1_5_15_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_test_1_5_15_BUILD_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_test_autoconfigure_1_5_15_BUILD_SNAPSHOT.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_test_autoconfigure_1_5_15_BUILD_SNAPSHOT.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/Salvo_main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/Salvo_main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/Salvo_test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/Salvo_test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/game.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/css/game.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/css/games.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/css/games.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/game_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/game_2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/games_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/games_2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/PlayerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/PlayerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoApplication.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -62,38 +78,48 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="game_2.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/game_2.html">
+      <file leaf-file-name="PlayerRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/PlayerRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+              <folding>
+                <element signature="n#!!doc;n#Player#0" />
+                <element signature="method#Player#0;class#Player#0" />
+                <element signature="method#getGames#0;class#Player#0" />
+                <element signature="method#getId#0;class#Player#0" />
+                <element signature="e#2704#2705#0" expanded="true" />
+                <element signature="e#2735#2736#0" expanded="true" />
+                <element signature="e#2783#2784#0" expanded="true" />
+                <element signature="e#2823#2824#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SalvoApplication.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoApplication.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="game.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/css/game.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="games.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/css/games.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="game_2.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/js/game_2.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="16" column="18" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="18" />
+              <caret line="124" column="13" lean-forward="true" selection-start-line="124" selection-start-column="13" selection-end-line="124" selection-end-column="13" />
+              <folding>
+                <element signature="method#initData#0;class#SalvoApplication#0" />
+                <element signature="e#776#886#0" />
+                <element signature="e#920#3785#0" />
+                <element signature="e#3791#3890#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -144,7 +170,7 @@
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
       <map>
-        <entry key="$PROJECT_DIR$" value="C:\Users\Dario\.gradle\wrapper\dists\gradle-3.5.1-bin\5aglzaqc99i3lll5iwkbm96su\gradle-3.5.1" />
+        <entry key="$PROJECT_DIR$" value="C:\Users\dario.m.jahnel\.gradle\wrapper\dists\gradle-3.5.1-bin\5aglzaqc99i3lll5iwkbm96su\gradle-3.5.1" />
       </map>
     </option>
     <option name="myGradleVersions">
@@ -375,9 +401,9 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="6117431154990" />
+        <entry key="$PROJECT_DIR$" value="6118577890386" />
         <entry key="$PROJECT_DIR$/.gradle" value="0" />
-        <entry key="$PROJECT_DIR$/build.gradle" value="3014909628" />
+        <entry key="$PROJECT_DIR$/build.gradle" value="3009244775" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="3603921981" />
         <entry key="$PROJECT_DIR$/settings.gradle" value="358575817" />
       </map>
@@ -394,10 +420,10 @@
                       <ExternalModuleBuildClasspathPojo>
                         <option name="entries">
                           <list>
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-gradle-plugin/1.5.15.BUILD-SNAPSHOT/38240b29583c0b72775db40b74c49a8e1f32f05b/spring-boot-gradle-plugin-1.5.15.BUILD-SNAPSHOT-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-gradle-plugin/1.5.15.BUILD-SNAPSHOT/e00deb99dbcbb5fe142231ae8d80a0790397cc56/spring-boot-gradle-plugin-1.5.15.BUILD-SNAPSHOT.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-loader-tools/1.5.15.BUILD-SNAPSHOT/c0c487b2b3c9611e901b0ef67e2434685b9792fb/spring-boot-loader-tools-1.5.15.BUILD-SNAPSHOT-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-loader-tools/1.5.15.BUILD-SNAPSHOT/eb3fac15a6ea7634f3256c93ea009e9c545187b9/spring-boot-loader-tools-1.5.15.BUILD-SNAPSHOT.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-gradle-plugin/1.5.15.BUILD-SNAPSHOT/3bc380ade82f8c44f867ffc37f53f36328f4fb3c/spring-boot-gradle-plugin-1.5.15.BUILD-SNAPSHOT-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-gradle-plugin/1.5.15.BUILD-SNAPSHOT/5104f01018553ceabaf751038002223bec62d597/spring-boot-gradle-plugin-1.5.15.BUILD-SNAPSHOT.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-loader-tools/1.5.15.BUILD-SNAPSHOT/d24c2ba6ada3ce75c4562f670042aeb244d7f151/spring-boot-loader-tools-1.5.15.BUILD-SNAPSHOT-sources.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-loader-tools/1.5.15.BUILD-SNAPSHOT/6d0a3e7feb05397179441294978502dbb3cb7837/spring-boot-loader-tools-1.5.15.BUILD-SNAPSHOT.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.spring.gradle/dependency-management-plugin/1.0.5.RELEASE/e9f2761e13da4228793ee5fcaa983889e68c4c61/dependency-management-plugin-1.0.5.RELEASE-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.spring.gradle/dependency-management-plugin/1.0.5.RELEASE/3589987a66349bdc10b18c6c4a5463ffd084c908/dependency-management-plugin-1.0.5.RELEASE.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/4.3.18.RELEASE/6ce871ab6fbcc92da74aaa53861a33828b20e346/spring-core-4.3.18.RELEASE-sources.jar" />
@@ -503,10 +529,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/PlayerRepository.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/manager.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/manager.js" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/GameRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/GamePLayer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/GamePlayerRepository.java" />
@@ -517,12 +541,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoRepository.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/web/js/game_2.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/ScoreRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoApplication.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/web/games.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/web/js/games_2.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Game.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Score.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Player.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/GamePlayer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Salvo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Ship.java" />
@@ -531,10 +553,14 @@
         <option value="$PROJECT_DIR$/src/main/resources/static/web/css/games.css" />
         <option value="$PROJECT_DIR$/src/main/resources/static/web/game_2.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/web/css/game.css" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/PlayerRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Player.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="15" />
     <option name="y" value="30" />
     <option name="width" value="1890" />
@@ -548,6 +574,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -582,51 +610,15 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Salvo" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Salvo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Salvo" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Salvo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Salvo" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Salvo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Salvo" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Salvo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Salvo" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Task 5 - 28-6 - Dario Jahnel.zip" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Salvofrontend" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -803,25 +795,25 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3024055" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="3" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25604996" />
+      <window_info anchor="bottom" id="Build" order="10" weight="0.3281787" />
       <window_info anchor="right" id="Gradle" order="5" weight="0.32943013" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="6" />
-      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39862543" />
+      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Build" order="10" weight="0.32943678" />
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
@@ -916,13 +908,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="46" selection-start-column="46" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot/1.5.15.BUILD-SNAPSHOT/e3c41087eb6862359838039644b574b870b7454d/spring-boot-1.5.15.BUILD-SNAPSHOT-sources.jar!/org/springframework/boot/CommandLineRunner.java" />
     <entry file="jar://$PROJECT_DIR$/../../src.zip!/java/util/Date.java" />
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-commons/1.13.13.RELEASE/8ed5462ff52644cedcb289f6a2dd025e0941147/spring-data-commons-1.13.13.RELEASE-sources.jar!/org/springframework/data/repository/CrudRepository.java">
@@ -999,13 +984,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/PlayerRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot/1.5.15.BUILD-SNAPSHOT/d4fec38096ceb6521fa8d5eb1a0452efbe0b6657/spring-boot-1.5.15.BUILD-SNAPSHOT.jar!/org/springframework/boot/SpringApplication.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="91">
@@ -1037,13 +1015,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="962">
-          <caret line="96" lean-forward="true" selection-start-line="96" selection-end-line="96" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/js/games.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1062,21 +1033,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="38" column="23" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
-          <folding>
-            <element signature="n#!!doc;n#Player#0" />
-            <element signature="e#893#896#0" />
-            <element signature="method#Player#0;class#Player#0" />
-            <element signature="method#Player#1;class#Player#0" />
-            <element signature="method#getGames#0;class#Player#0" />
-            <element signature="method#getId#0;class#Player#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1165,7 +1121,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/js/game_2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
+        <state relative-caret-position="272">
           <caret line="16" column="18" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="18" />
         </state>
       </provider>
@@ -1188,6 +1144,53 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="31" column="64" selection-start-line="31" selection-start-column="64" selection-end-line="31" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/PlayerRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+          <folding>
+            <element signature="n#!!doc;n#Player#0" />
+            <element signature="method#Player#0;class#Player#0" />
+            <element signature="method#getGames#0;class#Player#0" />
+            <element signature="method#getId#0;class#Player#0" />
+            <element signature="e#2704#2705#0" expanded="true" />
+            <element signature="e#2735#2736#0" expanded="true" />
+            <element signature="e#2783#2784#0" expanded="true" />
+            <element signature="e#2823#2824#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="124" column="13" lean-forward="true" selection-start-line="124" selection-start-column="13" selection-end-line="124" selection-end-column="13" />
+          <folding>
+            <element signature="method#initData#0;class#SalvoApplication#0" />
+            <element signature="e#776#886#0" />
+            <element signature="e#920#3785#0" />
+            <element signature="e#3791#3890#0" />
+          </folding>
         </state>
       </provider>
     </entry>

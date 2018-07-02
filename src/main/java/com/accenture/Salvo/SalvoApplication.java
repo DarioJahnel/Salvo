@@ -1,9 +1,16 @@
 package com.accenture.Salvo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configurers.GlobalAuthenticationConfigurerAdapter;
+import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import java.time.Instant;
 import java.util.*;
@@ -26,11 +33,11 @@ public class SalvoApplication {
 
 		return (args) -> {
 			// save a couple of customers
-			Player player1 = new Player("Jack", "Bauer", "jackbauer@gmail.com");
-			Player player2 = new Player("Chloe", "O'Brian", "chloeobrian@gmail.com");
-			Player player3 = new Player("Kim", "Bauer", "kimbauer@gmail.com");
-			Player player4 = new Player("David", "Palmer", "davidpalmer@gmail.com");
-			Player player5 = new Player("Michelle", "Dessler", "michelledessler@gmail.com");
+			Player player1 = new Player("Jack", "Bauer", "jackbauer@gmail.com", "24");
+			Player player2 = new Player("Chloe", "O'Brian", "chloeobrian@gmail.com", "42");
+			Player player3 = new Player("Kim", "Bauer", "kimbauer@gmail.com", "kb");
+			Player player4 = new Player("David", "Palmer", "davidpalmer@gmail.com","dp");
+			Player player5 = new Player("Michelle", "Dessler", "michelledessler@gmail.com","md");
 
 			repository.save(player1);
 			repository.save(player2);
@@ -107,6 +114,26 @@ public class SalvoApplication {
 	//(para esto usamos bean)
 	//
 
+}
+
+@Configuration
+class WebSecurityConfiguration extends GlobalAuthenticationConfigurerAdapter {
+
+    @Autowired
+    PlayerRepository playerRepo;
+
+    @Override
+    public void init(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(inputName-> {
+            Player player = playerRepo.findByUserName(inputName);
+            if (player != null) {
+                return new User(player.getUserName(), player.getPassword(),
+                        AuthorityUtils.createAuthorityList("USER"));
+            } else {
+                throw new UsernameNotFoundException("Unknown user: " + inputName);
+            }
+        });
+    }
 }
 
 
