@@ -158,11 +158,16 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("**").permitAll()
                 .anyRequest().authenticated();
 
-
+		// Configuro el login, los parametros que recibe (JSON) y su URL
         http.formLogin()
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .loginPage("/api/login");
+
+        // Configuro logout, su URL
+        http.logout().logoutUrl("/api/logout");
+
+
 
         // turn off checking for CSRF tokens
         http.csrf().disable();

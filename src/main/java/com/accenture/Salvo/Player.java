@@ -43,6 +43,11 @@ public class Player {
     public Player() {
     }
 
+    public Player(String user, String password) {
+        this.userName = user;
+        this.password = password;
+    }
+
     public Player(String first, String last, String user, String password) {
         this.firstName = first;
         this.lastName = last;

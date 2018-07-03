@@ -1,10 +1,14 @@
 package com.accenture.Salvo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.MissingPathVariableException;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.*;
@@ -30,15 +34,7 @@ public class SalvoController {
     private PlayerRepository playerRepo;
 
 
-
-
-
-
-
-
-    //GAMES
-
-
+    // GAMES
     @RequestMapping("/games") //cuando el controlador recibe pedido de url con /api, se ejecuta este metodo
     public Map<String,Object> getAllGames(Authentication authentication) {
         Map<String,Object> mapa = new HashMap<>();
@@ -117,11 +113,7 @@ public class SalvoController {
 
     }
 
-
-
-    //GAME VIEW
-
-
+    // GAME VIEW
     @RequestMapping("/game_view/{gp}")
    public Map<String,Object> findGamePlayer(@PathVariable Long gp){ //todo: ANOTACION, machear lo que esta dentro de llaves, sino no lo reconoce como variable
        //todo: encontrar el juego que tiene asociado el gameplayerID que me pasan
@@ -209,10 +201,7 @@ public class SalvoController {
 
     }
 
-
-    //LeaderBoard JSON
-
-
+    // LeaderBoard JSON
     @RequestMapping("/leaderBoard")
     public List<Object> leaderBoard(){
 
@@ -279,7 +268,26 @@ public class SalvoController {
         return authentication == null || authentication instanceof AnonymousAuthenticationToken;
     }
 
+    // Se agrega path y method en este caso
+    @RequestMapping(path = "/players", method = RequestMethod.POST)
+    public ResponseEntity createPlayer(String username, String password){
 
+        if (username.isEmpty()) {
+            return new ResponseEntity<>("No name given", HttpStatus.FORBIDDEN);
+        }
+
+        if(playerRepo.findByUserName(username) != null){
+
+            Map<String,Object> error = new HashMap<>();
+            error.put("error","name in use");
+            return new ResponseEntity<Map<String,Object>>(error,HttpStatus.FORBIDDEN);
+        }
+            Map<String,Object> correcto = new HashMap<>();
+            correcto.put("username", username);
+
+            playerRepo.save(new Player(username,password));
+            return new ResponseEntity<Map<String,Object>>(correcto,HttpStatus.CREATED);
+    }
 }
 
 
