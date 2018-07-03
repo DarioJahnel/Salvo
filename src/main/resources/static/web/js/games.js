@@ -17,8 +17,8 @@ $('#login-form').on('submit', function (event) {
 
     if (submitButton == "login") {
         $.post("/api/login",
-            { name: $("#username").val(),
-                pwd: $("#password").val() })
+            { username: $("#username").val(),
+                password: $("#password").val() })
             .done(function() {
                 console.log("login ok");
                 $('#loginSuccess').show( "slow" ).delay(2000).hide( "slow" );
@@ -41,15 +41,15 @@ $('#login-form').on('submit', function (event) {
 
     } else if (submitButton == "signup") {
         $.post("/api/players",
-            { email: $("#username").val(),
+            { username: $("#username").val(),
                 password: $("#password").val() })
             .done(function(data) {
                 console.log("signup ok");
                 console.log(data);
                 $('#signupSuccess').show( "slow" ).delay(2000).hide( "slow" );
                 $.post("/api/login",
-                    { name: $("#username").val(),
-                        pwd: $("#password").val() })
+                    { username: $("#username").val(),
+                        password: $("#password").val() })
                     .done(function() {
                         console.log("login ok");
                         $('#loginSuccess').show( "slow" ).delay(2500).hide( "slow" );
@@ -160,7 +160,7 @@ function updateView() {
         showGamesTable(gamesData);
         addScoresToPlayersArray(getPlayers(gamesData));
         showScoreBoard(playersArray);
-        if (data.player == "Guest") {
+        if (data.player == "guest") {
             $('#currentPlayer').text(data.player);
             $('#logout-form').hide("slow");
             $('#login-form').show("slow");

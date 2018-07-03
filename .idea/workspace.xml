@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d119963-8a55-4ff3-990a-0e375ee8f285" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/js/games.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/js/games.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -62,11 +62,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="games.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/games.html">
+      <file leaf-file-name="SalvoController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="54" column="31" selection-start-line="54" selection-start-column="31" selection-end-line="54" selection-end-column="31" />
+            <state relative-caret-position="85">
+              <caret line="38" column="73" selection-start-line="38" selection-start-column="73" selection-end-line="38" selection-end-column="73" />
+              <folding>
+                <element signature="e#939#954#0" />
+                <element signature="method#procesarPlayerAuthentication#0;class#SalvoController#0" />
+                <element signature="method#procesarGameRepo#0;class#SalvoController#0" />
+                <element signature="method#procesarGames#0;class#SalvoController#0" />
+                <element signature="method#GamesDTO#0;class#SalvoController#0" />
+                <element signature="method#procesarGamePlayer#0;class#SalvoController#0" />
+                <element signature="method#gamePlayerApiDTO#0;class#SalvoController#0" />
+                <element signature="method#scoreList#0;class#SalvoController#0" />
+                <element signature="method#scoreDTO#0;class#SalvoController#0" />
+                <element signature="method#findGamePlayer#0;class#SalvoController#0" />
+                <element signature="e#3553#3643#0" />
+                <element signature="method#game_viewDTO#0;class#SalvoController#0" />
+                <element signature="method#procesarGamePlayerView#0;class#SalvoController#0" />
+                <element signature="method#gamePlayerDTO#0;class#SalvoController#0" />
+                <element signature="method#playerDTO#0;class#SalvoController#0" />
+                <element signature="method#procesarShips#0;class#SalvoController#0" />
+                <element signature="method#shipDTO#0;class#SalvoController#0" />
+                <element signature="method#procesarSalvos#0;class#SalvoController#0" />
+                <element signature="method#salvoDTO#0;class#SalvoController#0" />
+                <element signature="method#leaderBoard#0;class#SalvoController#0" />
+                <element signature="method#playerScoreList#0;class#SalvoController#0" />
+                <element signature="method#playerScoreDTO#0;class#SalvoController#0" />
+                <element signature="method#playerTotalScore#0;class#SalvoController#0" />
+                <element signature="method#playerWinScore#0;class#SalvoController#0" />
+                <element signature="method#playerLossScore#0;class#SalvoController#0" />
+                <element signature="method#playerTiesScore#0;class#SalvoController#0" />
+                <element signature="method#isGuest#0;class#SalvoController#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SalvoApplication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="162" column="44" selection-start-line="162" selection-start-column="36" selection-end-line="162" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="games.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/js/games.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -105,6 +155,10 @@
       <find>container</find>
       <find>playerinfo</find>
       <find>find</find>
+      <find>submitButton</find>
+      <find>login-form</find>
+      <find>col-sm-8</find>
+      <find>updateView</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -483,14 +537,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/GameRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/GamePLayer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/GamePlayerRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/web/js/games.js" />
         <option value="$PROJECT_DIR$/preguntas.txt" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/static/web/js/game.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoRepository.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/web/js/game_2.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/ScoreRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/web/games.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/web/js/games_2.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Game.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Score.java" />
@@ -506,6 +558,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Player.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/web/games.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/web/js/games.js" />
       </list>
     </option>
   </component>
@@ -561,6 +615,15 @@
               <item name="Salvo" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Salvo" type="462c0819:PsiDirectoryNode" />
+              <item name="SalvoApplication.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
+            <path>
+              <item name="Salvo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Salvo" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -580,6 +643,16 @@
               <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Salvo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Salvo" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -591,7 +664,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Salvofrontend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -609,7 +682,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.Salvo [bootRun]">
+  <component name="RunManager" selected="Gradle.Salvo [clean]">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -727,8 +800,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Salvo [bootRun]" />
         <item itemvalue="Gradle.Salvo [clean]" />
+        <item itemvalue="Gradle.Salvo [bootRun]" />
         <item itemvalue="Gradle.Salvo [build]" />
         <item itemvalue="Gradle.Salvo [classes]" />
         <item itemvalue="Gradle.Salvo [bootRun]" />
@@ -760,30 +833,30 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
-      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info id="Image Layers" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5003903" side_tool="true" weight="0.1580756" />
-      <window_info anchor="right" id="Maven Projects" order="8" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49960968" weight="0.1580756" />
+      <window_info anchor="right" id="Maven Projects" order="9" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49960968" visible="true" weight="0.31786942" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="right" id="Coverage" side_tool="true" />
+      <window_info anchor="right" id="Coverage" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25604996" />
-      <window_info anchor="right" id="Gradle" order="5" weight="0.32943013" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25604996" />
+      <window_info anchor="right" id="Gradle" order="6" weight="0.32943013" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info id="UI Designer" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39862543" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.3281787" />
@@ -887,13 +960,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/js/games.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="14" lean-forward="true" selection-start-column="14" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -1031,16 +1097,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="163" column="45" lean-forward="true" selection-start-line="163" selection-start-column="35" selection-end-line="163" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/../../src.zip!/java/util/HashMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2">
@@ -1137,17 +1193,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/games.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="34" column="86" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="162" column="44" selection-start-line="162" selection-start-column="36" selection-end-line="162" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/js/games.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1972">
-          <caret line="292" lean-forward="true" selection-start-line="292" selection-end-line="292" />
+        <state relative-caret-position="85">
+          <caret line="38" column="73" selection-start-line="38" selection-start-column="73" selection-end-line="38" selection-end-column="73" />
           <folding>
+            <element signature="e#939#954#0" />
+            <element signature="method#procesarPlayerAuthentication#0;class#SalvoController#0" />
+            <element signature="method#procesarGameRepo#0;class#SalvoController#0" />
+            <element signature="method#procesarGames#0;class#SalvoController#0" />
             <element signature="method#GamesDTO#0;class#SalvoController#0" />
             <element signature="method#procesarGamePlayer#0;class#SalvoController#0" />
             <element signature="method#gamePlayerApiDTO#0;class#SalvoController#0" />
             <element signature="method#scoreList#0;class#SalvoController#0" />
             <element signature="method#scoreDTO#0;class#SalvoController#0" />
             <element signature="method#findGamePlayer#0;class#SalvoController#0" />
+            <element signature="e#3553#3643#0" />
             <element signature="method#game_viewDTO#0;class#SalvoController#0" />
             <element signature="method#procesarGamePlayerView#0;class#SalvoController#0" />
             <element signature="method#gamePlayerDTO#0;class#SalvoController#0" />
@@ -1163,14 +1248,8 @@
             <element signature="method#playerWinScore#0;class#SalvoController#0" />
             <element signature="method#playerLossScore#0;class#SalvoController#0" />
             <element signature="method#playerTiesScore#0;class#SalvoController#0" />
+            <element signature="method#isGuest#0;class#SalvoController#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/games.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="54" column="31" selection-start-line="54" selection-start-column="31" selection-end-line="54" selection-end-column="31" />
         </state>
       </provider>
     </entry>
