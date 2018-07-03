@@ -1,6 +1,8 @@
 package com.accenture.Salvo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -38,16 +40,27 @@ public class SalvoController {
 
 
     @RequestMapping("/games") //cuando el controlador recibe pedido de url con /api, se ejecuta este metodo
-    public Map<String,Object> getAllGames() {
+    public Map<String,Object> getAllGames(Authentication authentication) {
         Map<String,Object> mapa = new HashMap<>();
-
-        mapa.put("player", "guest");
+        if(isGuest(authentication)== true){mapa.put("player", "guest");}
+        else{
+            mapa.put("player",procesarPlayerAuthentication(authentication));
+        }
         mapa.put("games", procesarGames(procesarGameRepo()));
 
         return mapa;
 
     }
 
+    private Map<String,Object> procesarPlayerAuthentication(Authentication authentication){
+        Map<String,Object> mapa = new HashMap<>();
+        Player player = playerRepo.findByUserName(authentication.getName());
+
+        mapa.put("id", player.getId());
+        mapa.put("name", player.getUserName());
+
+        return mapa;
+    }
     private Stream<Game> procesarGameRepo(){
 
         return gameRepo.findAll().stream();
@@ -260,6 +273,10 @@ public class SalvoController {
         Long ties;
         ties = p.getScore().stream().filter(s -> s.getScore() == 0.5).count();
         return ties;
+    }
+
+    private boolean isGuest(Authentication authentication) {
+        return authentication == null || authentication instanceof AnonymousAuthenticationToken;
     }
 
 
