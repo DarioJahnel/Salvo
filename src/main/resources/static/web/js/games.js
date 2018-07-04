@@ -111,6 +111,7 @@ $('#createGame').on('submit', function (event) {
         .done(function (data) {
             console.log(data);
             console.log("game created");
+            // le cambie el gpid y tarde en darme cuenta de que con console.log toma el mapa devuelto por el controlador
             gameViewUrl = "/web/game.html?gp=" + data.gpid;
             $('#gameCreatedSuccess').show("slow").delay(2000).hide("slow");
             setTimeout(
@@ -196,7 +197,7 @@ function showGamesTable(gamesData) {
                 if (gamesData[i].gamePlayers.length == 2) {
                     $('<td>' + gamesData[i].gamePlayers[j].player.email + '</td>').appendTo(row);
                 }
-                if (gamesData[i].gamePlayers.length == 1 && (data.player == "Guest" || data.player.id == gamesData[i].gamePlayers[j].player.id)) {
+                if (gamesData[i].gamePlayers.length == 1 && (data.player == "guest" || data.player.id == gamesData[i].gamePlayers[j].player.id)) {
                     $('<td>' + gamesData[i].gamePlayers[0].player.email + '</td><td class="yellow500">WAITING FOR PLAYER</td>').appendTo(row);
                 }
                 if (gamesData[i].gamePlayers.length == 1 && data.player.id != null && data.player.id != gamesData[i].gamePlayers[j].player.id) {
@@ -223,32 +224,33 @@ function showGamesTable(gamesData) {
 
         }
     $('.joinGameButton').click(function (e) {
-        e.preventDefault();
+         e.preventDefault();
 
-        let joinGameUrl = "/api/game/" + $(this).data('gameid') + "/players";
-        $.post(joinGameUrl)
-            .done(function (data) {
-                console.log(data);
-                console.log("game joined");
-                gameViewUrl = "/web/game.html?gp=" + data.gpid;
-                $('#gameJoinedSuccess').show("slow").delay(2000).hide("slow");
-                setTimeout(
-                   function()
-                  {
-                       location.href = gameViewUrl;
-                   }, 3000);
-            })
-            .fail(function (data) {
-                console.log("game join failed");
-                $('#errorSignup').text(data.responseJSON.error);
-                $('#errorSignup').show("slow").delay(4000).hide("slow");
+         let joinGameUrl = "/api/game/" + $(this).data('gameid') + "/players"; //api/game/id/pla
+         $.post(joinGameUrl)
+             .done(function (data) {
+                 console.log(data);
+                 console.log("game joined");
+                 // Aca tuve que volver a cambiar gpid, pero me di cuenta enseguida jaja
+                 gameViewUrl = "/web/game.html?gp=" + data.gpid;
+                 $('#gameJoinedSuccess').show("slow").delay(2000).hide("slow");
+                 setTimeout(
+                    function()
+                   {
+                        location.href = gameViewUrl;
+                    }, 3000);
+             })
+             .fail(function (data) {
+                 console.log("game join failed");
+                 $('#errorSignup').text(data.responseJSON.error);
+                 $('#errorSignup').show("slow").delay(4000).hide("slow");
 
-            })
-            .always(function () {
+             })
+             .always(function () {
 
-            });
-    });
-}
+             });
+     });
+ }
 
 function getPlayers(gamesData) {
 

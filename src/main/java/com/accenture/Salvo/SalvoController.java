@@ -1,5 +1,6 @@
 package com.accenture.Salvo;
 
+import org.apache.tomcat.util.http.parser.HttpParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.security.sasl.AuthorizeCallback;
 import java.util.*;
 import java.util.stream.Stream;
 
@@ -115,16 +117,21 @@ public class SalvoController {
 
     // GAME VIEW
     @RequestMapping("/game_view/{gp}")
-   public Map<String,Object> findGamePlayer(@PathVariable Long gp){ //todo: ANOTACION, machear lo que esta dentro de llaves, sino no lo reconoce como variable
+   public ResponseEntity<Map<String,Object>> findGamePlayer(@PathVariable Long gp,Authentication authentication){ //todo: ANOTACION, machear lo que esta dentro de llaves, sino no lo reconoce como variable
        //todo: encontrar el juego que tiene asociado el gameplayerID que me pasan
 
        GamePlayer gplayer  = gamePlayerRepo.findOne(gp);
+       Player player = playerRepo.findByUserName(authentication.getName());
+       ResponseEntity RE;
 
+       if(gplayer.getPlayer() == player){
 
+           RE = new ResponseEntity(game_viewDTO(gplayer),HttpStatus.OK);
+           return RE;
+       }
 
-       return game_viewDTO(gplayer);
-
-
+        RE = new ResponseEntity(crearMapa("error", "GameplayerID is not equal"),HttpStatus.UNAUTHORIZED);
+        return RE;
    }
 
     private Map<String, Object> game_viewDTO(GamePlayer gp) {
@@ -285,11 +292,50 @@ public class SalvoController {
             return new ResponseEntity<Map<String,Object>>(crearMapa("username",username),HttpStatus.CREATED);
     }
 
+
+    @RequestMapping(path = "/games",method = RequestMethod.POST)
+    public ResponseEntity<Map<String,Object>> createGame(Authentication authentication){
+        ResponseEntity responseEntity = new ResponseEntity(crearMapa("gpid",32),HttpStatus.CREATED);
+
+        if(isGuest(authentication) == false){
+            Player player = playerRepo.findByUserName(authentication.getName());
+            Game game = new Game();
+            GamePlayer gamePlayer = new GamePlayer(player,game);
+            gameRepo.save(game);
+            gamePlayerRepo.save(gamePlayer);
+            return responseEntity;
+        }
+
+        //no encuentro como cambiarle el mapa y httpStatus sin crear un objeto nuevo :D
+        responseEntity = new ResponseEntity(crearMapa("Error","User is not logged in"),HttpStatus.FORBIDDEN);
+        return responseEntity;
+    }
     private Map<String,Object> crearMapa(String string, Object object){
 
         Map<String,Object> mapa = new HashMap<>();
         mapa.put(string,object);
         return mapa;
+    }
+
+    @RequestMapping(path = "/game/{gameId}/players",method = RequestMethod.POST)
+    public ResponseEntity<Map<String,Object>>joinGame(@PathVariable Long gameId,Authentication authentication){
+
+        if(isGuest(authentication)){
+            return new ResponseEntity<>(crearMapa("Error","Player not logged in"),HttpStatus.UNAUTHORIZED);}
+
+        Player player = playerRepo.findByUserName(authentication.getName());
+        Game game = gameRepo.findOne(gameId);
+        if(game == null){
+            return new ResponseEntity<>(crearMapa("Error","No such game"),HttpStatus.FORBIDDEN);
+        }
+        if(game.getGamePlayers().size() == 2){
+            return new ResponseEntity<>(crearMapa("Error","Game is full"),HttpStatus.FORBIDDEN);
+        }
+        GamePlayer gamePlayer = new GamePlayer(player,game);
+        gamePlayerRepo.save(gamePlayer);
+
+        return new ResponseEntity<>(crearMapa("gpid",gamePlayer.getId()),HttpStatus.CREATED);
+
     }
 }
 
