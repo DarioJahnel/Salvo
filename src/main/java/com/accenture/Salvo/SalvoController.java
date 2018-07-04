@@ -7,10 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.MissingPathVariableException;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.security.sasl.AuthorizeCallback;
 import java.util.*;
@@ -34,6 +31,9 @@ public class SalvoController {
 
     @Autowired
     private PlayerRepository playerRepo;
+
+    @Autowired
+    private  ShipRepository shipRepo;
 
 
     // GAMES
@@ -290,6 +290,7 @@ public class SalvoController {
     }
 
 
+    // Create games
     @RequestMapping(path = "/games",method = RequestMethod.POST)
     public ResponseEntity<Map<String,Object>> createGame(Authentication authentication){
         ResponseEntity responseEntity = new ResponseEntity(crearMapa("gpid",32),HttpStatus.CREATED);
@@ -314,6 +315,7 @@ public class SalvoController {
         return mapa;
     }
 
+    // Join games
     @RequestMapping(path = "/game/{gameId}/players",method = RequestMethod.POST)
     public ResponseEntity<Map<String,Object>>joinGame(@PathVariable Long gameId,Authentication authentication){
 
@@ -334,6 +336,41 @@ public class SalvoController {
         return new ResponseEntity<>(crearMapa("gpid",gamePlayer.getId()),HttpStatus.CREATED);
 
     }
+
+    // Recibir ships de front-end
+    @RequestMapping(path = "/games/players/{gamePlayerId}/ships",method = RequestMethod.POST)
+    public ResponseEntity<Object> getShips(@PathVariable Long gamePlayerId, @RequestBody List<Ship> ships,
+                                                       Authentication authentication){
+
+        if(isGuest(authentication)){
+            return new ResponseEntity<>(crearMapa("Error","User not logged in"), HttpStatus.UNAUTHORIZED);
+        }
+
+        GamePlayer gamePlayer = gamePlayerRepo.findOne(gamePlayerId);
+        if(gamePlayer == null){
+            return new ResponseEntity<>(crearMapa("Error","Gameplayer doesn't exist"), HttpStatus.UNAUTHORIZED);
+        }
+
+        Player player = playerRepo.findByUserName(authentication.getName());
+        if(gamePlayer.getPlayer()!= player){
+            return new ResponseEntity<>(crearMapa("Error","Player mismatch"), HttpStatus.UNAUTHORIZED);
+        }
+
+        //ToDo: Insertar codigo para chequear si ya tiene ships colocados
+
+
+        for (int i=0; i< ships.size(); i++){
+
+            Ship ship = ships.get(i);
+            ship.setGamePlayer(gamePlayer);
+            shipRepo.save(ship);
+
+        }
+
+        return new ResponseEntity<>(HttpStatus.CREATED);
+
+    }
+
 }
 
 
