@@ -122,16 +122,13 @@ public class SalvoController {
 
        GamePlayer gplayer  = gamePlayerRepo.findOne(gp);
        Player player = playerRepo.findByUserName(authentication.getName());
-       ResponseEntity RE;
 
        if(gplayer.getPlayer() == player){
 
-           RE = new ResponseEntity(game_viewDTO(gplayer),HttpStatus.OK);
-           return RE;
-       }
 
-        RE = new ResponseEntity(crearMapa("error", "GameplayerID is not equal"),HttpStatus.UNAUTHORIZED);
-        return RE;
+           return new ResponseEntity(game_viewDTO(gplayer),HttpStatus.OK);
+       }
+        return new ResponseEntity(crearMapa("error", "GameplayerID is not equal"),HttpStatus.UNAUTHORIZED);
    }
 
     private Map<String, Object> game_viewDTO(GamePlayer gp) {
