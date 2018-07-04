@@ -155,8 +155,9 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/rest/**").hasAuthority("ADMIN")
                 .antMatchers("/api/game_view*").hasAuthority("USER")
                 .antMatchers("/web/game_2.html*").hasAuthority("USER")
-                .antMatchers("**").permitAll()
-                .anyRequest().authenticated();
+				.antMatchers("/api/**").permitAll()
+				.antMatchers("/web/**").permitAll()
+				.anyRequest().authenticated();
 
 		// Configuro el login, los parametros que recibe (JSON) y su URL
         http.formLogin()

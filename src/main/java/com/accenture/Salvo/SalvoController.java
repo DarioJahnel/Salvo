@@ -278,15 +278,18 @@ public class SalvoController {
 
         if(playerRepo.findByUserName(username) != null){
 
-            Map<String,Object> error = new HashMap<>();
-            error.put("error","name in use");
-            return new ResponseEntity<Map<String,Object>>(error,HttpStatus.FORBIDDEN);
+            return new ResponseEntity<Map<String,Object>>(crearMapa("error","name in use"),HttpStatus.FORBIDDEN);
         }
-            Map<String,Object> correcto = new HashMap<>();
-            correcto.put("username", username);
 
             playerRepo.save(new Player(username,password));
-            return new ResponseEntity<Map<String,Object>>(correcto,HttpStatus.CREATED);
+            return new ResponseEntity<Map<String,Object>>(crearMapa("username",username),HttpStatus.CREATED);
+    }
+
+    private Map<String,Object> crearMapa(String string, Object object){
+
+        Map<String,Object> mapa = new HashMap<>();
+        mapa.put(string,object);
+        return mapa;
     }
 }
 
