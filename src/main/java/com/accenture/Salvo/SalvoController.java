@@ -33,7 +33,10 @@ public class SalvoController {
     private PlayerRepository playerRepo;
 
     @Autowired
-    private  ShipRepository shipRepo;
+    private ShipRepository shipRepo;
+
+    @Autowired
+    private SalvoRepository salvoRepo;
 
 
     // GAMES
@@ -369,6 +372,37 @@ public class SalvoController {
 
         return new ResponseEntity<>(HttpStatus.CREATED);
 
+    }
+
+    @RequestMapping(path = "/games/players/{gamePlayerId}/salvos",method = RequestMethod.POST)
+    public ResponseEntity<Object> getSalvoes(@PathVariable Long gamePlayerId, @RequestBody List<Salvo> salvoes,
+                                           Authentication authentication){
+
+        if(isGuest(authentication)){
+            return new ResponseEntity<>(crearMapa("Error","User not logged in"), HttpStatus.UNAUTHORIZED);
+        }
+
+        GamePlayer gamePlayer = gamePlayerRepo.findOne(gamePlayerId);
+        if(gamePlayer == null){
+            return new ResponseEntity<>(crearMapa("Error","Gameplayer doesn't exist"), HttpStatus.UNAUTHORIZED);
+        }
+
+        Player player = playerRepo.findByUserName(authentication.getName());
+        if(gamePlayer.getPlayer()!= player){
+            return new ResponseEntity<>(crearMapa("Error","Player mismatch"), HttpStatus.UNAUTHORIZED);
+        }
+
+        //ToDo: Insertar codigo para chequear si ya tiene salvoes enviados este turno
+
+        for (int i=0; i< salvoes.size(); i++){
+
+            Salvo salvo = salvoes.get(i);
+            salvo.setGamePlayer(gamePlayer);
+            salvoRepo.save(salvo);
+
+        }
+
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
 }

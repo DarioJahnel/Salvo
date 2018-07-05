@@ -57,7 +57,11 @@ public class Salvo {
         return gamePlayer;
     }
 
+    public void setLocation(List<String> location) {
+        this.location = location;
+    }
 
-
-
+    public void setGamePlayer(GamePlayer gamePlayer) {
+        this.gamePlayer = gamePlayer;
+    }
 }
