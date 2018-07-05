@@ -405,7 +405,7 @@ function makeGameRecordTable (hitsArray, gameRecordTableId) {
         playerTag = "#";
     }
 
-    hitsArray.forEach(function (playTurn) {
+        hitsArray.forEach(function (playTurn) {
         let hitsReport = "";
         if (playTurn.damages.carrierHits > 0){
             hitsReport += "Carrier " + addDamagesIcons(playTurn.damages.carrierHits, "hit") + " ";
@@ -440,7 +440,7 @@ function makeGameRecordTable (hitsArray, gameRecordTableId) {
                 shipsAfloat--;
             }
         }
-        if (playTurn.damages.patrolboatHits > 0){
+            if (playTurn.damages.patrolboatHits > 0){
             hitsReport += "Patrol Boat " + addDamagesIcons(playTurn.damages.patrolboatHits, "hit") + " ";
             if (playTurn.damages.patrolboat === 2){
                 hitsReport += "SUNK! ";

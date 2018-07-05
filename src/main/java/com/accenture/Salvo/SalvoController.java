@@ -1,6 +1,7 @@
 package com.accenture.Salvo;
 
 import org.apache.tomcat.util.http.parser.HttpParser;
+import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +11,9 @@ import org.springframework.web.bind.MissingPathVariableException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.security.sasl.AuthorizeCallback;
+import javax.xml.stream.Location;
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
@@ -137,6 +140,11 @@ public class SalvoController {
     private Map<String, Object> game_viewDTO(GamePlayer gp) {
         Map<String, Object> mapa = new HashMap<>();
 
+        GamePlayer gamePlayer2 = new GamePlayer();
+        for (GamePlayer gamePlayer : gp.getGame().getGamePlayers()) {
+            if (gamePlayer!=gp){gamePlayer2 = gamePlayer;}
+        }
+
 
 
         mapa.put("id", gp.getGame().getId());
@@ -145,11 +153,84 @@ public class SalvoController {
         mapa.put("ships",procesarShips(gp.getShips()) );
         mapa.put("salvoes",procesarSalvos(gp.getGame().getGamePlayers())); //ya le paso el stream completo de salvos del game
 
+        mapa.put("hits",hitsDTO(gp,gamePlayer2));
+
         return mapa;
 
     }
 
+    private Map<String,Object> hitsDTO(GamePlayer gamePlayer1, GamePlayer gamePlayer2){
+        Map<String, Object> mapa = new HashMap<>();
 
+        mapa.put("self",selfDTO(gamePlayer1, gamePlayer2));
+        mapa.put("opponent",selfDTO(gamePlayer2,gamePlayer1));
+        return mapa;
+    }
+
+    private List<Map> selfDTO(GamePlayer gamePlayer1, GamePlayer gamePlayer2){
+
+        Set<Salvo> gp2salvos = gamePlayer2.getSalvoes();
+        List<Map> mapList = new ArrayList<>();
+        Map<String,Object> damagesMap = new HashMap<>();
+
+        int carrier = 0, battleship = 0, submarine = 0,destroyer = 0,patrolboat = 0 ;
+
+        for(Salvo salvo: gp2salvos){ // Cada salvo
+            int carrierHits = 0, battleshipHits = 0, submarineHits = 0
+                    , destroyerHits = 0, patrolboatHits = 0,missed = 0;
+            Map<String,Object> mapa = new HashMap<>();
+            List<String> hitLocations = new ArrayList<>();
+            mapa.put("turn",salvo.getTurn());
+
+
+            for (String salvoLocation:salvo.getLocation()){ // Cada salvo location
+                missed = 0;
+                boolean hit = false;
+
+                for(Ship ship:gamePlayer1.getShips()){ // Cada ship
+                    for(String shipLocation:ship.getLocation()){ // Cada ship location
+                        if(salvoLocation == shipLocation){
+                            hit = true;
+                            hitLocations.add(salvoLocation);
+                            switch (ship.getType()){
+                                case "carrier": carrierHits++;carrier++;
+                                    break;
+                                case "battleship": battleship++;battleshipHits++;
+                                    break;
+                                case "submarine": submarine++; submarineHits++;
+                                    break;
+                                case "destroyer": destroyer++; destroyerHits++;
+                                    break;
+                                case "patrolboat": patrolboat++; patrolboatHits++;
+                                    break;
+                            }
+                            break;
+                        }
+                    }
+                }
+                if (!hit) missed++;
+            }
+            damagesMap.put("carrierHits",carrierHits);
+            damagesMap.put("battleshipHits",battleshipHits);
+            damagesMap.put("submarineHits",submarineHits);
+            damagesMap.put("destroyerHits",destroyerHits);
+            damagesMap.put("patrolboatHits",patrolboatHits);
+            damagesMap.put("carrier",carrier);
+            damagesMap.put("battleship",battleship);
+            damagesMap.put("submarine",submarine);
+            damagesMap.put("destroyer",destroyer);
+            damagesMap.put("patrolboat",patrolboat);
+
+            mapa.put("hit locations",hitLocations);
+            mapa.put("damages",damagesMap);
+            mapa.put("missed",missed);
+
+            mapList.add(mapa);
+        }
+
+        return mapList;
+
+    }
     private List<Map> procesarGamePlayerView(Set<GamePlayer> set){
 
         return set.stream().map(this::gamePlayerDTO).collect(toList());
@@ -296,7 +377,6 @@ public class SalvoController {
     // Create games
     @RequestMapping(path = "/games",method = RequestMethod.POST)
     public ResponseEntity<Map<String,Object>> createGame(Authentication authentication){
-        ResponseEntity responseEntity = new ResponseEntity(crearMapa("gpid",32),HttpStatus.CREATED);
 
         if(isGuest(authentication) == false){
             Player player = playerRepo.findByUserName(authentication.getName());
@@ -304,12 +384,13 @@ public class SalvoController {
             GamePlayer gamePlayer = new GamePlayer(player,game);
             gameRepo.save(game);
             gamePlayerRepo.save(gamePlayer);
-            return responseEntity;
+            return new ResponseEntity(crearMapa("gpid",32),HttpStatus.CREATED);
         }
 
         //no encuentro como cambiarle el mapa y httpStatus sin crear un objeto nuevo :D
-        responseEntity = new ResponseEntity(crearMapa("Error","User is not logged in"),HttpStatus.FORBIDDEN);
-        return responseEntity;
+
+
+        return new ResponseEntity(crearMapa("Error","User is not logged in"),HttpStatus.FORBIDDEN);
     }
     private Map<String,Object> crearMapa(String string, Object object){
 
@@ -373,7 +454,7 @@ public class SalvoController {
         return new ResponseEntity<>(HttpStatus.CREATED);
 
     }
-
+    // Recibir salvoes de front-end
     @RequestMapping(path = "/games/players/{gamePlayerId}/salvos",method = RequestMethod.POST)
     public ResponseEntity<Object> getSalvoes(@PathVariable Long gamePlayerId, @RequestBody List<Salvo> salvoes,
                                            Authentication authentication){
@@ -404,6 +485,8 @@ public class SalvoController {
 
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+    // Mapear el game history
 
 }
 
