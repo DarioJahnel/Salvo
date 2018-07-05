@@ -65,4 +65,8 @@ public class Ship {
     public void setGamePlayer(GamePlayer gamePlayer) {
         this.gamePlayer = gamePlayer;
     }
+
+    public void setLocation(List<String> location) {
+        this.location = location;
+    }
 }
