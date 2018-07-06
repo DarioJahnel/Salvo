@@ -25,8 +25,6 @@ public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) //id generacion automatica
     private Long Id;
-    private String firstName;
-    private String lastName;
     private String userName;
     private String password;
 
@@ -47,31 +45,7 @@ public class Player {
         this.userName = user;
         this.password = password;
     }
-
-    public Player(String first, String last, String user, String password) {
-        this.firstName = first;
-        this.lastName = last;
-        this.userName = user;
-        this.password = password;
-    }
-
-
     //Getters y setters
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public String getUserName() {
         return userName;

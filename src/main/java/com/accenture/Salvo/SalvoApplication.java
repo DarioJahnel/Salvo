@@ -41,43 +41,79 @@ public class SalvoApplication {
 
 		return (args) -> {
 			// save a couple of customers
-			Player player1 = new Player("Jack", "Bauer", "jackbauer@gmail.com", "24");
-			Player player2 = new Player("Chloe", "O'Brian", "chloeobrian@gmail.com", "42");
-			Player player3 = new Player("Kim", "Bauer", "kimbauer@gmail.com", "kb");
-			Player player4 = new Player("David", "Palmer", "davidpalmer@gmail.com","dp");
-			Player player5 = new Player("Michelle", "Dessler", "michelledessler@gmail.com","md");
+			Player jack = new Player("j.bauer@ctu.gov", "24");
+			Player chloe = new Player(" c.obrian@ctu.gov", "42");
+			Player kim = new Player("kim_bauer@gmail.com", "kb");
+			Player david = new Player("davidpalmer@gmail.com","dp");
+			Player miche = new Player("michelledessler@gmail.com","md");
+			Player tony = new Player("t.almeida@ctu.gov","mole");
 
-			repository.save(player1);
-			repository.save(player2);
-			repository.save(player3);
-			repository.save(player4);
-			repository.save(player5);
+			repository.save(jack);
+			repository.save(chloe);
+			repository.save(kim);
+			repository.save(david);
+			repository.save(miche);
 
 
 			Game game1 = new Game(Date.from(Instant.now().plusSeconds(0)));
 			Game game2 = new Game(Date.from(Instant.now().plusSeconds(3600)));
 			Game game3 = new Game(Date.from(Instant.now().plusSeconds(7200)));
+			Game game4 = new Game(Date.from(Instant.now().plusSeconds(0)));
+			Game game5 = new Game(Date.from(Instant.now().plusSeconds(3600)));
+			Game game6 = new Game(Date.from(Instant.now().plusSeconds(7200)));
+			Game game7 = new Game(Date.from(Instant.now().plusSeconds(0)));
+			Game game8 = new Game(Date.from(Instant.now().plusSeconds(3600)));
+
 
 			game.save(game1);
 			game.save(game2);
 			game.save(game3);
+			game.save(game4);
+			game.save(game5);
+			game.save(game6);
+			game.save(game7);
+			game.save(game8);
 
-			GamePlayer gamePlayer1 = new GamePlayer(player3, game2);
-			GamePlayer gamePlayer4 = new GamePlayer(player1, game2);
-			GamePlayer gamePlayer2 = new GamePlayer(player1, game1);
-			GamePlayer gamePlayer3 = new GamePlayer(player5, game3);
+			GamePlayer gamePlayer1 = new GamePlayer(jack, game1);
+			GamePlayer gamePlayer2 = new GamePlayer(chloe, game1);
+
+			GamePlayer gamePlayer3 = new GamePlayer(jack, game2);
+			GamePlayer gamePlayer4 = new GamePlayer(chloe, game2);
+
+			GamePlayer gamePlayer5 = new GamePlayer(chloe, game3);
+			GamePlayer gamePlayer6 = new GamePlayer(tony, game3);
+
+			GamePlayer gamePlayer7 = new GamePlayer(chloe, game4);
+			GamePlayer gamePlayer8 = new GamePlayer(jack, game4);
+
+			GamePlayer gamePlayer9 = new GamePlayer(tony, game5);
+			GamePlayer gamePlayer10 = new GamePlayer(jack, game5);
+
+			GamePlayer gamePlayer11 = new GamePlayer(kim, game6);
+
+			GamePlayer gamePlayer12 = new GamePlayer(tony, game7);
+
+			GamePlayer gamePlayer13 = new GamePlayer(kim, game8);
+			GamePlayer gamePlayer14 = new GamePlayer(tony, game8);
+
+
 
 			gameplayer.save(gamePlayer1);
 			gameplayer.save(gamePlayer2);
 			gameplayer.save(gamePlayer3);
 			gameplayer.save(gamePlayer4);
+			gameplayer.save(gamePlayer5);
+			gameplayer.save(gamePlayer6);
+			gameplayer.save(gamePlayer7);
+			gameplayer.save(gamePlayer8);
+			gameplayer.save(gamePlayer9);
+			gameplayer.save(gamePlayer10);
+			gameplayer.save(gamePlayer11);
+			gameplayer.save(gamePlayer12);
+			gameplayer.save(gamePlayer13);
+			gameplayer.save(gamePlayer14);
 
 //			new ArrayList<>(Arrays.asList("E1","F1","G1")) para hacerlo mas rapido
-            List<String> lista1 = Arrays.asList("A1","B1","C1","D1","E1");
-            List<String> lista2 = Arrays.asList("A2","A3","A4","A5");
-            List<String> lista3 = Arrays.asList("A3","B3","C3");
-            List<String> lista4 = Arrays.asList("A4","B4","C4");
-
 			Ship carrier1 = new Ship("carrier",lista1, gamePlayer1);
 			Ship battleship1 = new Ship("battleship",lista2, gamePlayer4);
             Ship submarine1 = new Ship("submarine",lista3, gamePlayer4);
@@ -90,15 +126,53 @@ public class SalvoApplication {
             ship.save(destroyer1);
             ship.save(patrolBoat1);
 
-			Salvo salvo1 = new Salvo(1,new ArrayList<String>(Arrays.asList("A1")),gamePlayer4);
-			Salvo salvo2 = new Salvo(2,new ArrayList<String>(Arrays.asList("B1")),gamePlayer4);
-			Salvo salvo3 = new Salvo(3,new ArrayList<String>(Arrays.asList("C1")),gamePlayer4);
-			Salvo salvo4 = new Salvo(4,new ArrayList<String>(Arrays.asList("E1")),gamePlayer4);
+			Salvo salvo1 = new Salvo(1,new ArrayList<String>(Arrays.asList("B5", "C5", "F1")),gamePlayer1);
+			Salvo salvo2 = new Salvo(1,new ArrayList<String>(Arrays.asList("B4", "B5", "B6")),gamePlayer2);
+			Salvo salvo3 = new Salvo(2,new ArrayList<String>(Arrays.asList("F2", "D5")),gamePlayer1);
+			Salvo salvo4 = new Salvo(2,new ArrayList<String>(Arrays.asList("E1", "H3", "A2")),gamePlayer2);
+
+			Salvo salvo5 = new Salvo(1,new ArrayList<String>(Arrays.asList("A2", "A4", "G6")),gamePlayer3);
+			Salvo salvo6 = new Salvo(1,new ArrayList<String>(Arrays.asList("B5", "D5", "C7")),gamePlayer4);
+			Salvo salvo7 = new Salvo(2,new ArrayList<String>(Arrays.asList("A3", "H6")),gamePlayer3);
+			Salvo salvo8 = new Salvo(2,new ArrayList<String>(Arrays.asList("C5", "C6")),gamePlayer4);
+
+			Salvo salvo9 = new Salvo(1,new ArrayList<String>(Arrays.asList("G6", "H6", "A4")),gamePlayer5);
+			Salvo salvo10 = new Salvo(1,new ArrayList<String>(Arrays.asList("H1", "H2", "H3")),gamePlayer6);
+			Salvo salvo11 = new Salvo(2,new ArrayList<String>(Arrays.asList("A2", "A3", "D8")),gamePlayer5);
+			Salvo salvo12 = new Salvo(2,new ArrayList<String>(Arrays.asList("E1", "F2", "G3")),gamePlayer6);
+
+			Salvo salvo13 = new Salvo(1,new ArrayList<String>(Arrays.asList("A3", "A4", "F7")),gamePlayer7);
+			Salvo salvo14 = new Salvo(2,new ArrayList<String>(Arrays.asList("B5", "C6", "H1")),gamePlayer8);
+			Salvo salvo15 = new Salvo(2,new ArrayList<String>(Arrays.asList("A2", "G6", "H6")),gamePlayer7);
+			Salvo salvo16 = new Salvo(2,new ArrayList<String>(Arrays.asList("C5", "C7", "D5")),gamePlayer8);
+
+			Salvo salvo17 = new Salvo(1,new ArrayList<String>(Arrays.asList("A1", "A2", "A3")),gamePlayer9);
+			Salvo salvo18 = new Salvo(1,new ArrayList<String>(Arrays.asList("B5", "B6", "C7")),gamePlayer10);
+			Salvo salvo19 = new Salvo(2,new ArrayList<String>(Arrays.asList("G6", "G7", "G8")),gamePlayer9);
+			Salvo salvo20 = new Salvo(2,new ArrayList<String>(Arrays.asList("C6", "D6", "E6")),gamePlayer10);
+			Salvo salvo21 = new Salvo(3,new ArrayList<String>(Arrays.asList("H1", "H8")),gamePlayer9);
 
 			salvo.save(salvo1);
 			salvo.save(salvo2);
 			salvo.save(salvo3);
 			salvo.save(salvo4);
+			salvo.save(salvo5);
+			salvo.save(salvo6);
+			salvo.save(salvo7);
+			salvo.save(salvo8);
+			salvo.save(salvo9);
+			salvo.save(salvo10);
+			salvo.save(salvo11);
+			salvo.save(salvo12);
+			salvo.save(salvo13);
+			salvo.save(salvo14);
+			salvo.save(salvo15);
+			salvo.save(salvo16);
+			salvo.save(salvo17);
+			salvo.save(salvo18);
+			salvo.save(salvo19);
+			salvo.save(salvo20);
+			salvo.save(salvo21);
 
 			Score score1 = new Score(game2,player1,1f);
 			Score score2 = new Score(game2,player2,0f);
