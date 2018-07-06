@@ -3,6 +3,7 @@ package com.accenture.Salvo;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Entity
@@ -66,7 +67,15 @@ public class Ship {
         this.gamePlayer = gamePlayer;
     }
 
-    public void setLocation(List<String> location) {
-        this.location = location;
+    public void setType(String type) {
+        this.type = type;
     }
+
+    //gets an array of locations and adds them to the bottom of the list
+    public void addLocations (String[] locationArray) {
+        List<String> newListObject = Arrays.asList(locationArray);
+        location.addAll(newListObject);
+    }
+
+
 }
