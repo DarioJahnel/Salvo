@@ -123,9 +123,10 @@ public class SalvoController {
 
     // GAME VIEW
     @RequestMapping("/game_view/{gp}")
-   public ResponseEntity<Map<String,Object>> findGamePlayer(@PathVariable Long gp,Authentication authentication){ //todo: ANOTACION, machear lo que esta dentro de llaves, sino no lo reconoce como variable
-       //todo: encontrar el juego que tiene asociado el gameplayerID que me pasan
+   public ResponseEntity<Map<String,Object>> findGamePlayer(@PathVariable Long gp,Authentication authentication){ //ANOTACION, machear lo que esta dentro de llaves, sino no lo reconoce como variable
 
+
+        int ssink = 0, osink = 0;
        GamePlayer gplayer  = gamePlayerRepo.findOne(gp);
        Player player = playerRepo.findByUserName(authentication.getName());
 
@@ -154,9 +155,31 @@ public class SalvoController {
         mapa.put("salvoes",procesarSalvos(gp.getGame().getGamePlayers())); //ya le paso el stream completo de salvos del game
 
         mapa.put("hits",hitsDTO(gp,gamePlayer2));
+        mapa.put("gameState",checkGameState(gp,gamePlayer2,gp.getGame()));
 
         return mapa;
 
+    }
+
+    private GameState checkGameState(GamePlayer gamePlayer1, GamePlayer gamePlayer2, Game game){
+
+        if(game.getGamePlayers().size() == 1){
+            gamePlayer1.setGameState(GameState.WAITINGFOROPP);
+        }
+        if(gamePlayer1.getShips().size() == 0 && gamePlayer2.getShips().size() == 0){
+            gamePlayer1.setGameState(GameState.PLACESHIPS);
+        }
+        if (gamePlayer1.getSalvoes().size() == gamePlayer2.getSalvoes().size()){
+            gamePlayer1.setGameState(GameState.PLAY);
+        }
+        if(gamePlayer1.getSalvoes().size() > gamePlayer2.getSalvoes().size()){
+            gamePlayer1.setGameState(GameState.WAIT);
+        }
+
+
+
+
+        return gamePlayer1.getGameState();
     }
 
     private Map<String,Object> hitsDTO(GamePlayer gamePlayer1, GamePlayer gamePlayer2){
@@ -225,7 +248,12 @@ public class SalvoController {
             mapa.put("damages",damagesMap);
             mapa.put("missed",missed);
 
+            if ((carrier == 5) && (battleship == 4) && (submarine == 3) && (destroyer == 2) && (patrolboat == 1)){
+                x
+            }
+
             mapList.add(mapa);
+
         }
 
         return mapList;

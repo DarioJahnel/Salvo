@@ -26,6 +26,7 @@ public class Game {
 
 
 
+
     //Constructores
     public Game(){}
 
@@ -58,6 +59,5 @@ public class Game {
     public Set<Score> getScore() {
         return score;
     }
-
 
 }

@@ -35,6 +35,8 @@ public class GamePlayer {
 
     private Date creationDate;
 
+    private GameState gameState;
+
 
 
     //Constructores
@@ -63,5 +65,13 @@ public class GamePlayer {
 
     public Set<Salvo> getSalvoes() {
         return salvoes;
+    }
+
+    public GameState getGameState() {
+        return gameState;
+    }
+
+    public void setGameState(GameState gameState) {
+        this.gameState = gameState;
     }
 }
