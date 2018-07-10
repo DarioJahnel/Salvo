@@ -60,4 +60,7 @@ public class Game {
         return score;
     }
 
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
 }

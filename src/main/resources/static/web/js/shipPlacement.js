@@ -134,8 +134,9 @@ function renderPositions(positions) {
 			}
 		}
 		shipObject = {
-			shipType : positions[i].id,
-			shipLocations : shipPosition
+		// Cambio nombres para que funcione con el back
+			type : positions[i].id,
+			location : shipPosition
 		}
 		shipData.push(shipObject);
 		

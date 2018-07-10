@@ -64,4 +64,8 @@ public class Salvo {
     public void setGamePlayer(GamePlayer gamePlayer) {
         this.gamePlayer = gamePlayer;
     }
+
+    public void setTurn(int turn) {
+        this.turn = turn;
+    }
 }

@@ -1,11 +1,8 @@
 package com.accenture.Salvo;
 
-import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 public class GamePlayer {
@@ -40,7 +37,10 @@ public class GamePlayer {
 
 
     //Constructores
-    public GamePlayer(){}
+    public GamePlayer(){
+
+        this.salvoes = Collections.EMPTY_SET;
+    }
 
     public GamePlayer(Player jugador, Game partida){
 
