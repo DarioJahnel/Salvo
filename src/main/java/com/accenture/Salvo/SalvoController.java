@@ -176,6 +176,11 @@ public class SalvoController {
         if(gamePlayer1.getSalvoes().size() > gamePlayer2.getSalvoes().size()){
             gamePlayer1.setGameState(GameState.WAIT);
         }
+        if(gamePlayer2.getGameState() == GameState.WON){
+            if (gamePlayer1.getGameState() == GameState.WON){
+                gamePlayer1.setGameState(GameState.TIE);
+            }
+        }
 
 
 
@@ -271,7 +276,7 @@ public class SalvoController {
                 mapa.put("missed", missed);
 
                 if ((carrier == 5) && (battleship == 4) && (submarine == 3) && (destroyer == 2) && (patrolboat == 1)) {
-
+                gamePlayer1.setGameState(GameState.WON);
                 }
 
                 mapList.add(mapa);
@@ -498,7 +503,7 @@ public class SalvoController {
 
         }
 
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>(crearMapa("CREATED","Ships created"),HttpStatus.CREATED);
 
     }
     // Recibir salvoes de front-end
@@ -528,7 +533,7 @@ public class SalvoController {
         salvo.setTurn(turno);
         salvoRepo.save(salvo);
 
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>(crearMapa("CREATED","Salvoes created"),HttpStatus.CREATED);
     }
 
 }
