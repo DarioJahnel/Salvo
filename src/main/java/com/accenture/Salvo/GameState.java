@@ -9,5 +9,5 @@ public enum GameState {
     WON,
     LOST,
     TIE,
-    UNDEFINED
+    PROCESSING
 }

@@ -153,45 +153,65 @@ public class SalvoController {
 
         Game game = new Game();
         game = gamePlayer1.getGame();
+        GameState previousP1 = gamePlayer1.getGameState();
 
+        gamePlayer1.setGameState(GameState.WAIT);
         if(game.getGamePlayers().size() == 1){
             gamePlayer1.setGameState(GameState.WAITINGFOROPP);
-            return gamePlayer1.getGameState();
         }
-        // Consigo gameplayer
-        GamePlayer gamePlayer2 = new GamePlayer();
-        for (GamePlayer gamePlayer:game.getGamePlayers()){
-            if(gamePlayer.getId() != gamePlayer1.getId()) gamePlayer2 = gamePlayer;
-        }
-        gamePlayer1.setGameState(GameState.WAIT);
         if(gamePlayer1.getShips().size() == 0){
             gamePlayer1.setGameState(GameState.PLACESHIPS);
         }
-        int lastTurn;
-        lastTurn = gamePlayer2.getSalvoes().size() + 1;
-        if(gamePlayer1.getSalvoes().size() > gamePlayer2.getSalvoes().size()) lastTurn = gamePlayer1.getSalvoes().size();
-        if (gamePlayer1.getSalvoes().size() < lastTurn && gamePlayer1.getShips().size() > 0 && gamePlayer2.getShips().size() > 0){
-            gamePlayer1.setGameState(GameState.PLAY);
-        }
-        if(gamePlayer1.getSalvoes().size() > gamePlayer2.getSalvoes().size()){
-            gamePlayer1.setGameState(GameState.WAIT);
-        }
-        if(gamePlayer2.getGameState() == GameState.WON){
-            if (gamePlayer1.getGameState() == GameState.WON){
-                gamePlayer1.setGameState(GameState.TIE);
+        // Para los siguientes estados, chequeo que haya 2 jugadores en la partida (sino tira null pointer )
+        if(gamePlayer1.getGame().getGamePlayers().size() > 1) {
+            // Consigo gamePlayer2
+            GamePlayer gamePlayer2 = new GamePlayer();
+            for (GamePlayer gamePlayer : game.getGamePlayers()) {
+                if (gamePlayer.getId() != gamePlayer1.getId()) gamePlayer2 = gamePlayer;
+            }
+            int lastTurn;
+            lastTurn = gamePlayer2.getSalvoes().size() + 1;
+            if (gamePlayer1.getSalvoes().size() > gamePlayer2.getSalvoes().size())
+                lastTurn = gamePlayer1.getSalvoes().size();
+            if (gamePlayer1.getSalvoes().size() < lastTurn && gamePlayer1.getShips().size() > 0 && gamePlayer2.getShips().size() > 0) {
+                gamePlayer1.setGameState(GameState.PLAY);
+            }
+            //        if(gamePlayer1.getSalvoes().size() > gamePlayer2.getSalvoes().size()){
+            //            gamePlayer1.setGameState(GameState.WAIT);
+            //        }
+            if (gamePlayer2.getGameState() == GameState.PROCESSING) {
+                if (previousP1 == GameState.PROCESSING) {
+                    gamePlayer1.setGameState(GameState.TIE);
+                    gamePlayer2.setGameState(GameState.TIE);
+                }
+                if (previousP1 == GameState.WAIT){
+                    gamePlayer2.setGameState(GameState.PROCESSING);
+                    return gamePlayer1.getGameState();
+                }
+                gamePlayer1.setGameState(GameState.LOST);
+                gamePlayer2.setGameState(GameState.WON);
+            }
+            if(previousP1 == GameState.PROCESSING){
+                if(gamePlayer2.getGameState() == GameState.PROCESSING){
+                    gamePlayer1.setGameState(GameState.TIE);
+                    gamePlayer2.setGameState(GameState.TIE);
+                }
+                if (gamePlayer2.getGameState() == GameState.WAIT){
+                    gamePlayer1.setGameState(GameState.PROCESSING);
+                    return gamePlayer1.getGameState();
+                }
+
+                gamePlayer1.setGameState(GameState.WON);
+                gamePlayer2.setGameState(GameState.LOST);
+
             }
         }
-
-
-
-
-
-
         return gamePlayer1.getGameState();
     }
 
     private Map<String,Object> hitsDTO(GamePlayer gamePlayer1){
         Map<String, Object> mapa = new HashMap<>();
+        Boolean self; //uso para chequear si es self u opponent
         //Chequear si hay GamePlayer2
         if (gamePlayer1.getGame().getGamePlayers().size() == 2) {
             GamePlayer gamePlayer2 = new GamePlayer();
@@ -201,16 +221,16 @@ public class SalvoController {
                 }
             }
 
-            mapa.put("self", selfDTO(gamePlayer1, gamePlayer2));
-            mapa.put("opponent", selfDTO(gamePlayer2, gamePlayer1));
+            mapa.put("self", selfopponentDTO(gamePlayer1, gamePlayer2, self = true));
+            mapa.put("opponent", selfopponentDTO(gamePlayer2, gamePlayer1, self = false));
             return mapa;
         }
-        mapa.put("self", selfDTO(gamePlayer1, new GamePlayer()));
-        mapa.put("opponent", selfDTO(new GamePlayer(), gamePlayer1));
+        mapa.put("self", selfopponentDTO(gamePlayer1, new GamePlayer(), self = true));
+        mapa.put("opponent", selfopponentDTO(new GamePlayer(), gamePlayer1, self = false));
         return mapa;
     }
 
-    private List<Map> selfDTO(GamePlayer gamePlayer1, GamePlayer gamePlayer2){
+    private List<Map> selfopponentDTO(GamePlayer gamePlayer1, GamePlayer gamePlayer2,Boolean self){
             List<Map> mapList = new ArrayList<>();
             Set<Salvo> gp2salvos = gamePlayer2.getSalvoes();
             int carrier = 0, battleship = 0, submarine = 0, destroyer = 0, patrolboat = 0;
@@ -254,9 +274,10 @@ public class SalvoController {
                                         patrolboatHits++;
                                         break;
                                 }
-                                break;
                             }
+                        if(hit == true) break;
                         }
+                    if(hit == true) break;
                     }
                     if (!hit) missed++;
                 }
@@ -275,8 +296,13 @@ public class SalvoController {
                 mapa.put("damages", damagesMap);
                 mapa.put("missed", missed);
 
-                if ((carrier == 5) && (battleship == 4) && (submarine == 3) && (destroyer == 2) && (patrolboat == 1)) {
-                gamePlayer1.setGameState(GameState.WON);
+                if ((carrier == 5) && (battleship == 4) && (submarine == 3) && (destroyer == 3) && (patrolboat == 2)) {
+                    if(self) {
+                        gamePlayer1.setGameState(GameState.PROCESSING);
+                    }
+                    if(!self){
+                        gamePlayer2.setGameState(GameState.PROCESSING);
+                    }
                 }
 
                 mapList.add(mapa);
@@ -475,7 +501,7 @@ public class SalvoController {
 
     // POSTShips
     @RequestMapping(path = "/games/players/{gamePlayerId}/ships",method = RequestMethod.POST)
-    public ResponseEntity<Object> getShips(@PathVariable Long gamePlayerId, @RequestBody List<Ship> ships,
+    public ResponseEntity<Object> createShips(@PathVariable Long gamePlayerId, @RequestBody List<Ship> ships,
                                                        Authentication authentication){
 
         if(isGuest(authentication)){
@@ -503,10 +529,10 @@ public class SalvoController {
 
         }
 
-        return new ResponseEntity<>(crearMapa("CREATED","Ships created"),HttpStatus.CREATED);
+        return new ResponseEntity<>(crearMapa("OK","Ships placed"),HttpStatus.CREATED);
 
     }
-    // Recibir salvoes de front-end
+    // POSTSalvoes
     @RequestMapping(path = "/games/players/{gamePlayerId}/salvoes",method = RequestMethod.POST)
     public ResponseEntity<Object> getSalvoes(@PathVariable Long gamePlayerId, @RequestBody Salvo salvo,
                                            Authentication authentication){
