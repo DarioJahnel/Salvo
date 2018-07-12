@@ -19,12 +19,12 @@ import static java.util.stream.Collectors.toList;
 public class Player {
 
     //Propiedades
-    //The annotation @Id says that the id instance variable holds the database key for this class.
+    //The annotation @id says that the id instance variable holds the database key for this class.
     //poniendo @id tambien persisten todos los otros atributos
     //If there are fields that should not be saved, e.g., because they hold temporary scratch data, annotate them with @Transient.
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) //id generacion automatica
-    private Long Id;
+    private Long id;
     private String userName;
     private String password;
 
@@ -65,7 +65,7 @@ public class Player {
     }
 
 
-    public Long getId(){return Id;}
+    public Long getId(){return id;}
 
     public Set<GamePlayer> getGamePlayers() {
         return gamePlayers;

@@ -14,7 +14,7 @@ public class Game {
     //Propiedades
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO) //id generacion automatica
-    private Long Id;
+    private Long id;
 
     private Date creationDate;
 
@@ -48,7 +48,7 @@ public class Game {
         return gamePlayers.stream().map(g -> g.getPlayer()).collect(toList());
     }
 
-    public Long getId(){return Id;}
+    public Long getId(){return id;}
 
     public Set<GamePlayer> getGamePlayers() {return this.gamePlayers;}
 

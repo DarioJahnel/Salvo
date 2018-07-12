@@ -1,19 +1,12 @@
 package com.accenture.Salvo;
 
-import org.apache.tomcat.util.http.parser.HttpParser;
-import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.MissingPathVariableException;
 import org.springframework.web.bind.annotation.*;
-
-import javax.security.sasl.AuthorizeCallback;
-import javax.xml.stream.Location;
 import java.util.*;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
@@ -36,20 +29,19 @@ public class SalvoController {
     private PlayerRepository playerRepo;
 
     @Autowired
-    private ShipRepository shipRepo;
-
-    @Autowired
     private SalvoRepository salvoRepo;
 
+    @Autowired
+    private ScoreRepository scoreRepo;
 
     // GAMES
     @RequestMapping("/games") //cuando el controlador recibe pedido de url con /api, se ejecuta este metodo
     public Map<String, Object> getAllGames(Authentication authentication) {
         Map<String, Object> mapa = new HashMap<>();
-        if (isGuest(authentication) == true) {
-            mapa.put("player", "guest");
+        if (isGuest(authentication)) {
+            mapa.put(APIConstants.PLAYER, "guest");
         } else {
-            mapa.put("player", procesarPlayerAuthentication(authentication));
+            mapa.put(APIConstants.PLAYER, procesarPlayerAuthentication(authentication));
         }
         mapa.put("games", procesarGames(procesarGameRepo()));
 
@@ -74,10 +66,10 @@ public class SalvoController {
     }
 
     private List<Map> procesarGames(Stream<Game> gameStream) {
-        return gameStream.map(this::GamesDTO).collect(toList());
+        return gameStream.map(this::gamesDTO).collect(toList());
     }
 
-    private Map<String, Object> GamesDTO(Game juego) {
+    private Map<String, Object> gamesDTO(Game juego) {
 
         Map<String, Object> mapa = new HashMap<>();
 
@@ -99,7 +91,7 @@ public class SalvoController {
         Map<String, Object> mapa = new HashMap<>();
 
         mapa.put("id", gp.getId());
-        mapa.put("player", playerDTO(gp.getPlayer()));
+        mapa.put(APIConstants.PLAYER, playerDTO(gp.getPlayer()));
 
         return mapa;
 
@@ -133,12 +125,13 @@ public class SalvoController {
         if (gplayer.getPlayer() == player) {
 
 
-            return new ResponseEntity(game_viewDTO(gplayer), HttpStatus.OK);
+            return new ResponseEntity(gameViewDTO(gplayer), HttpStatus.OK);
         }
-        return new ResponseEntity(crearMapa("error", "GameplayerID is not equal"), HttpStatus.UNAUTHORIZED);
+        return new ResponseEntity(createMap(APIConstants.ERROR, "GameplayerID is not equal")
+                , HttpStatus.UNAUTHORIZED);
     }
 
-    private Map<String, Object> game_viewDTO(GamePlayer gp) {
+    private Map<String, Object> gameViewDTO(GamePlayer gp) {
         Map<String, Object> mapa = new HashMap<>();
 
         mapa.put("id", gp.getGame().getId());
@@ -152,10 +145,10 @@ public class SalvoController {
     }
 
     private GameState checkGameState(GamePlayer gamePlayer1) {
-        int sumatoria, sumatoria2;
-        Game game = new Game();
+        int sumatoria;
+        int sumatoria2;
+        Game game;
         game = gamePlayer1.getGame();
-        GameState previousP1 = gamePlayer1.getGameState();
 
         gamePlayer1.setGameState(GameState.WAIT);
         if (game.getGamePlayers().size() == 1) {
@@ -164,59 +157,66 @@ public class SalvoController {
         if (gamePlayer1.getShips().size() == 0) {
             gamePlayer1.setGameState(GameState.PLACESHIPS);
         }
+
         // Para los siguientes estados, chequeo que haya 2 jugadores en la partida (sino tira null pointer )
         if (gamePlayer1.getGame().getGamePlayers().size() > 1) {
+
             // Consigo gamePlayer2
             GamePlayer gamePlayer2 = new GamePlayer();
-            // Consigo sumatoria de hits
             for (GamePlayer gamePlayer : game.getGamePlayers()) {
                 if (gamePlayer.getId() != gamePlayer1.getId()) gamePlayer2 = gamePlayer;
             }
+
+            // Consigo sumatoria de hits de ambos players
             sumatoria = sumatoriaHits(gamePlayer1,gamePlayer2);
             sumatoria2 = sumatoriaHits(gamePlayer2,gamePlayer1);
+
+            // Consigo ultimo turno
             int lastTurn;
             lastTurn = gamePlayer2.getSalvoes().size() + 1;
             if (gamePlayer1.getSalvoes().size() > gamePlayer2.getSalvoes().size())
                 lastTurn = gamePlayer1.getSalvoes().size();
-            if (gamePlayer1.getSalvoes().size() < lastTurn && gamePlayer1.getShips().size() > 0 && gamePlayer2.getShips().size() > 0 && sumatoria != 17) {
+
+            if ((gamePlayer1.getSalvoes().size() < lastTurn) && (gamePlayer1.getShips().size() > 0)
+                    && (gamePlayer2.getShips().size() > 0) && (sumatoria != 17)) {
                 gamePlayer1.setGameState(GameState.PLAY);
             }
-            if(gamePlayer1.getShips().size() > 0 && gamePlayer2.getShips().size() > 0) {
-                if (sumatoria == 17) {
-                    if (gamePlayer1.getSalvoes().size() == gamePlayer2.getSalvoes().size()) {
-                        if (sumatoria2 == 17) {
-                            gamePlayer1.setGameState(GameState.TIE);
-                            gamePlayer2.setGameState(GameState.TIE);
-                        }
-                        else{
-                        gamePlayer1.setGameState(GameState.WON);
-                        gamePlayer2.setGameState(GameState.LOST);
+
+            // Chequeo de TIE WON LOST
+            if ((sumatoria == 17 || sumatoria2 ==17) && gamePlayer1.getSalvoes().size() ==
+                    gamePlayer2.getSalvoes().size()) {
+                    if (sumatoria == 17 && sumatoria2 == 17) {
+                        gamePlayer1.setGameState(GameState.TIE);
+                        gamePlayer2.setGameState(GameState.TIE);
+                        if(game.getScore().size() == 0) {
+                            scoreRepo.save(new Score(game, gamePlayer1.getPlayer(), 0.5f));
+                            scoreRepo.save(new Score(game, gamePlayer2.getPlayer(), 0.5f));
                         }
                     }
-                }
-            }
-//            if(gamePlayer1.getShips().size() > 0 && gamePlayer2.getShips().size() > 0) {
-//                if (sumatoria2 == 17) {
-//                    if (gamePlayer1.getSalvoes().size() == gamePlayer2.getSalvoes().size()) {
-//                        if (sumatoria == 17) {
-//                            gamePlayer1.setGameState(GameState.TIE);
-//                            gamePlayer2.setGameState(GameState.TIE);
-//                        }
-//                        else{
-//                        gamePlayer2.setGameState(GameState.WON);
-//                        gamePlayer1.setGameState(GameState.LOST);
-//                        }
-//                    }
-//                }
-//            }
+                    if(sumatoria > sumatoria2) {
+                        gamePlayer1.setGameState(GameState.WON);
+                        gamePlayer2.setGameState(GameState.LOST);
+                        if(game.getScore().size() == 0) {
+                            scoreRepo.save(new Score(game, gamePlayer1.getPlayer(), 1f));
+                            scoreRepo.save(new Score(game, gamePlayer2.getPlayer(), 0f));
+                        }
+                    }
+                    else{
+                        gamePlayer2.setGameState(GameState.WON);
+                        gamePlayer1.setGameState(GameState.LOST);
+                        if(game.getScore().size() == 0) {
+                            scoreRepo.save(new Score(game, gamePlayer2.getPlayer(), 1f));
+                            scoreRepo.save(new Score(game, gamePlayer1.getPlayer(), 0f));
+                        }
+                    }
 
-        }
+                    }
+            }
         return gamePlayer1.getGameState();
     }
 
     private Map<String, Object> hitsDTO(GamePlayer gamePlayer1) {
         Map<String, Object> mapa = new HashMap<>();
-        Boolean self; //uso para chequear si es self u opponent
         //Chequear si hay GamePlayer2
         if (gamePlayer1.getGame().getGamePlayers().size() == 2) {
             GamePlayer gamePlayer2 = new GamePlayer();
@@ -226,24 +226,32 @@ public class SalvoController {
                 }
             }
 
-            mapa.put("self", selfopponentDTO(gamePlayer1, gamePlayer2, self = true));
-            mapa.put("opponent", selfopponentDTO(gamePlayer2, gamePlayer1, self = false));
+            mapa.put("self", selfopponentDTO(gamePlayer1, gamePlayer2));
+            mapa.put("opponent", selfopponentDTO(gamePlayer2, gamePlayer1));
             return mapa;
         }
-        mapa.put("self", selfopponentDTO(gamePlayer1, new GamePlayer(), self = true));
-        mapa.put("opponent", selfopponentDTO(new GamePlayer(), gamePlayer1, self = false));
+        mapa.put("self", selfopponentDTO(gamePlayer1, new GamePlayer()));
+        mapa.put("opponent", selfopponentDTO(new GamePlayer(), gamePlayer1));
         return mapa;
     }
 
-    private List<Map> selfopponentDTO(GamePlayer gamePlayer1, GamePlayer gamePlayer2, Boolean self) {
+    private List<Map> selfopponentDTO(GamePlayer gamePlayer1, GamePlayer gamePlayer2) {
         List<Map> mapList = new ArrayList<>();
         Set<Salvo> gp2salvos = gamePlayer2.getSalvoes();
-        int carrier = 0, battleship = 0, submarine = 0, destroyer = 0, patrolboat = 0;
+        int carrier = 0;
+        int battleship = 0;
+        int submarine = 0;
+        int destroyer = 0;
+        int patrolboat = 0;
 
 
         for (Salvo salvo : gp2salvos) { // Cada salvo
             Map<String, Object> damagesMap = new HashMap<>();
-            int carrierHits = 0, battleshipHits = 0, submarineHits = 0, destroyerHits = 0, patrolboatHits = 0;
+            int carrierHits = 0;
+            int battleshipHits = 0;
+            int submarineHits = 0;
+            int destroyerHits = 0;
+            int patrolboatHits = 0;
             Map<String, Object> mapa = new HashMap<>();
             List<String> hitLocations = new ArrayList<>();
             mapa.put("turn", salvo.getTurn());
@@ -280,9 +288,9 @@ public class SalvoController {
                                     break;
                             }
                         }
-                        if (hit == true) break;
+                        if (hit) break;
                     }
-                    if (hit == true) break;
+                    if (hit) break;
                 }
                 if (!hit) missed++;
             }
@@ -291,11 +299,11 @@ public class SalvoController {
             damagesMap.put("submarineHits", submarineHits);
             damagesMap.put("destroyerHits", destroyerHits);
             damagesMap.put("patrolboatHits", patrolboatHits);
-            damagesMap.put("carrier", carrier);
-            damagesMap.put("battleship", battleship);
-            damagesMap.put("submarine", submarine);
-            damagesMap.put("destroyer", destroyer);
-            damagesMap.put("patrolboat", patrolboat);
+            damagesMap.put(ShipTypeConstants.CARRIER, carrier);
+            damagesMap.put(ShipTypeConstants.BATTLESHIP, battleship);
+            damagesMap.put(ShipTypeConstants.SUBMARINE, submarine);
+            damagesMap.put(ShipTypeConstants.DESTROYER, destroyer);
+            damagesMap.put(ShipTypeConstants.DESTROYER, patrolboat);
 
             mapa.put("hitLocations", hitLocations);
             mapa.put("damages", damagesMap);
@@ -317,6 +325,7 @@ public class SalvoController {
 
         mapa.put("id", gp.getId());
         mapa.put("player", playerDTO(gp.getPlayer()));
+        mapa.put("joinDate", gp.getJoinDate());
 
         return mapa;
     }
@@ -348,9 +357,9 @@ public class SalvoController {
 
     private List<Map> procesarSalvos(Set<GamePlayer> gp) {
 
-        Stream<Salvo> SS = gp.stream().flatMap(g -> g.getSalvoes().stream());
+        Stream<Salvo> ss = gp.stream().flatMap(g -> g.getSalvoes().stream());
 
-        return SS.map(this::salvoDTO).collect(toList());
+        return ss.map(this::salvoDTO).collect(toList());
     }
 
     private Map<String, Object> salvoDTO(Salvo s) {
@@ -400,7 +409,7 @@ public class SalvoController {
     private double playerTotalScore(Player p) {
 
         double total = 0;
-        total = p.getScore().stream().mapToDouble(s -> s.getScore()).sum();
+        total = p.getScore().stream().mapToDouble(Score::getScore).sum();
         return total;
     }
 
@@ -437,16 +446,17 @@ public class SalvoController {
     public ResponseEntity createPlayer(String username, String password) {
 
         if (username.isEmpty()) {
-            return new ResponseEntity<>("No name given", HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>(APIConstants.USERNAME_EMPTY, HttpStatus.FORBIDDEN);
         }
 
         if (playerRepo.findByUserName(username) != null) {
 
-            return new ResponseEntity<Map<String, Object>>(crearMapa("error", "name in use"), HttpStatus.FORBIDDEN);
+            return new ResponseEntity<Map<String, Object>>(createMap(APIConstants.ERROR,
+                    APIConstants.USERNAME_DUPLICATED), HttpStatus.FORBIDDEN);
         }
 
         playerRepo.save(new Player(username, password));
-        return new ResponseEntity<Map<String, Object>>(crearMapa("username", username), HttpStatus.CREATED);
+        return new ResponseEntity<Map<String, Object>>(createMap("username", username), HttpStatus.CREATED);
     }
 
 
@@ -454,19 +464,19 @@ public class SalvoController {
     @RequestMapping(path = "/games", method = RequestMethod.POST)
     public ResponseEntity<Map<String, Object>> createGame(Authentication authentication) {
 
-        if (isGuest(authentication) == false) {
+        if (!isGuest(authentication)) {
             Player player = playerRepo.findByUserName(authentication.getName());
             Game game = new Game();
             game.setCreationDate(new Date());
             GamePlayer gamePlayer = new GamePlayer(player, game);
             gameRepo.save(game);
             gamePlayerRepo.save(gamePlayer);
-            return new ResponseEntity(crearMapa("gpid", gamePlayer.getId()), HttpStatus.CREATED);
+            return new ResponseEntity(createMap(APIConstants.GAMEPLAYERID, gamePlayer.getId()), HttpStatus.CREATED);
         }
-        return new ResponseEntity(crearMapa("Error", "User is not logged in"), HttpStatus.FORBIDDEN);
+        return new ResponseEntity(createMap(APIConstants.ERROR, APIConstants.USERNOTLOGGED), HttpStatus.FORBIDDEN);
     }
 
-    private Map<String, Object> crearMapa(String string, Object object) {
+    private Map<String, Object> createMap(String string, Object object) {
 
         Map<String, Object> mapa = new HashMap<>();
         mapa.put(string, object);
@@ -478,21 +488,21 @@ public class SalvoController {
     public ResponseEntity<Map<String, Object>> joinGame(@PathVariable Long gameId, Authentication authentication) {
 
         if (isGuest(authentication)) {
-            return new ResponseEntity<>(crearMapa("Error", "Player not logged in"), HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>(createMap(APIConstants.ERROR, APIConstants.USERNOTLOGGED), HttpStatus.UNAUTHORIZED);
         }
 
         Player player = playerRepo.findByUserName(authentication.getName());
         Game game = gameRepo.findOne(gameId);
         if (game == null) {
-            return new ResponseEntity<>(crearMapa("Error", "No such game"), HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>(createMap(APIConstants.ERROR, APIConstants.NO_GAME), HttpStatus.FORBIDDEN);
         }
         if (game.getGamePlayers().size() == 2) {
-            return new ResponseEntity<>(crearMapa("Error", "Game is full"), HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>(createMap(APIConstants.ERROR, APIConstants.GAME_FULL), HttpStatus.FORBIDDEN);
         }
         GamePlayer gamePlayer = new GamePlayer(player, game);
         gamePlayerRepo.save(gamePlayer);
 
-        return new ResponseEntity<>(crearMapa("gpid", gamePlayer.getId()), HttpStatus.CREATED);
+        return new ResponseEntity<>(createMap(APIConstants.GAMEPLAYERID, gamePlayer.getId()), HttpStatus.CREATED);
 
     }
 
@@ -502,31 +512,28 @@ public class SalvoController {
                                               Authentication authentication) {
 
         if (isGuest(authentication)) {
-            return new ResponseEntity<>(crearMapa("Error", "User not logged in"), HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>(createMap(APIConstants.ERROR, APIConstants.USERNOTLOGGED), HttpStatus.UNAUTHORIZED);
         }
 
         GamePlayer gamePlayer = gamePlayerRepo.findOne(gamePlayerId);
         if (gamePlayer == null) {
-            return new ResponseEntity<>(crearMapa("Error", "Gameplayer doesn't exist"), HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>(createMap(APIConstants.ERROR, APIConstants.GAMEPLAYER_NOT_EXISTS)
+                    , HttpStatus.UNAUTHORIZED);
         }
 
         Player player = playerRepo.findByUserName(authentication.getName());
         if (gamePlayer.getPlayer() != player) {
-            return new ResponseEntity<>(crearMapa("Error", "Player mismatch"), HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>(createMap(APIConstants.ERROR, APIConstants.PLAYER_MISMATCH)
+                    , HttpStatus.UNAUTHORIZED);
         }
 
-        //ToDo: Insertar codigo para chequear si ya tiene ships colocados
-
-
-        for (int i = 0; i < ships.size(); i++) {
-
-            Ship ship = ships.get(i);
-            ship.setGamePlayer(gamePlayer);
-            shipRepo.save(ship);
-
-        }
-
-        return new ResponseEntity<>(crearMapa("OK", "Ships placed"), HttpStatus.CREATED);
+    if (gamePlayer.getShips().size() == 0) {
+        gamePlayer.addShips(ships);
+        gamePlayerRepo.save(gamePlayer);
+        return new ResponseEntity<>(createMap(APIConstants.OK, APIConstants.SHIPS_PLACED), HttpStatus.CREATED);
+    }else
+        return new ResponseEntity<>(createMap(APIConstants.ERROR, APIConstants.SHIPS_ALREADY_PLACED)
+                , HttpStatus.FORBIDDEN);
 
     }
 
@@ -536,28 +543,44 @@ public class SalvoController {
                                              Authentication authentication) {
 
         if (isGuest(authentication)) {
-            return new ResponseEntity<>(crearMapa("Error", "User not logged in"), HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>(createMap(APIConstants.ERROR, APIConstants.USERNOTLOGGED), HttpStatus.UNAUTHORIZED);
         }
 
         GamePlayer gamePlayer = gamePlayerRepo.findOne(gamePlayerId);
         if (gamePlayer == null) {
-            return new ResponseEntity<>(crearMapa("Error", "Gameplayer doesn't exist"), HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>
+                    (createMap(APIConstants.ERROR, APIConstants.GAMEPLAYER_NOT_EXISTS), HttpStatus.UNAUTHORIZED);
         }
 
         Player player = playerRepo.findByUserName(authentication.getName());
         if (gamePlayer.getPlayer() != player) {
-            return new ResponseEntity<>(crearMapa("Error", "Player mismatch"), HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>
+                    (createMap(APIConstants.ERROR, APIConstants.PLAYER_MISMATCH), HttpStatus.UNAUTHORIZED);
+        }
+        // Consigo gameplayer2 para hacer el chequeo de que no envien mas de 1 salvo por turn
+        GamePlayer gamePlayer2 = new GamePlayer();
+        if(gamePlayer.getGame().getGamePlayers().size() == 2) {
+            for (GamePlayer gp : gamePlayer.getGame().getGamePlayers()) {
+                if (gp.getId() != gamePlayer.getId()) {
+                    gamePlayer2 = gp;
+                }
+            }
+            int gp1salvoes = gamePlayer.getSalvoes().size();
+            int gp2salvoes = gamePlayer2.getSalvoes().size();
+            //
+            if (gp1salvoes > gp2salvoes)
+                return new ResponseEntity<>
+                        (createMap(APIConstants.ERROR,APIConstants.SALVOES_FIRED), HttpStatus.UNAUTHORIZED);
+
         }
 
-        //ToDo: Insertar codigo para chequear si ya tiene salvoes enviados este turno recordar lo que le dije a damian
 
+        int turn = gamePlayer.getSalvoes().size() + 1;
 
-        int turno = gamePlayer.getSalvoes().size() + 1;
-        salvo.setGamePlayer(gamePlayer);
-        salvo.setTurn(turno);
-        salvoRepo.save(salvo);
+        gamePlayer.addSalvo(salvo,turn);
+        gamePlayerRepo.save(gamePlayer);
 
-        return new ResponseEntity<>(crearMapa("CREATED", "Salvoes created"), HttpStatus.CREATED);
+        return new ResponseEntity<>(createMap(APIConstants.CREATED, APIConstants.SALVOES_CREATED), HttpStatus.CREATED);
     }
 
     private int sumatoriaHits(GamePlayer gamePlayer2, GamePlayer gamePlayer1) {
@@ -572,9 +595,9 @@ public class SalvoController {
                             hit = true;
                             sumatoria++;
                         }
-                        if (hit == true) break;
+                        if (hit) break;
                     }
-                    if (hit == true) break;
+                    if (hit) break;
                 }
             }
         }

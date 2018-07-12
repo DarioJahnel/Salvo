@@ -13,7 +13,7 @@ public class Salvo {
     //Propiedades
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long Id;
+    private Long id;
 
     private int turn;
 
@@ -42,7 +42,7 @@ public class Salvo {
 
     //Getters y setters
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public int getTurn() {

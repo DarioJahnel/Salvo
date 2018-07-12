@@ -364,6 +364,13 @@ function postSalvo (postUrl) {
             console.log(response);
             $('#errorSalvo').text(JSON.parse(response.responseText).error);
             $('#errorSalvo').show( "slow" ).delay(4000).hide( "slow" );
+            waitState = true;
+
+                        setTimeout(
+                            function()
+                            {
+                                refreshGameView(makeUrl());
+                            }, 4000);
         })
 }
 

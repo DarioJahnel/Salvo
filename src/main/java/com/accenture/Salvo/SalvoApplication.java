@@ -39,7 +39,7 @@ public class SalvoApplication {
 		//esto devuelve una instancia de commandlinerunner con un metodo run() que ejecuta los saves y se guarda luego
 		//de inicializar tod
 
-		return (args) -> {
+		return args -> {
 			// save a couple of customers
 			Player jack = new Player("j.bauer@ctu.gov", "24");
 			Player chloe = new Player(" c.obrian@ctu.gov", "42");
@@ -115,7 +115,6 @@ public class SalvoApplication {
 			gameplayer.save(gamePlayer14);
 
 //			new ArrayList<>(Arrays.asList("E1","F1","G1")) para hacerlo mas rapido
-			List<Ship> shipList = new ArrayList<>();
 			//creating ships
 			Ship ship1 = new Ship();
 			Ship ship2 = new Ship();
@@ -146,85 +145,85 @@ public class SalvoApplication {
 			Ship ship27 = new Ship();
 			//setting ship stats
 			String[] locations1 = {"H2","H3","H4"};
-			ship1.setType("destroyer");
+			ship1.setType(ShipTypeConstants.DESTROYER);
 			ship1.addLocations(locations1);
 			String[] locations2 = {"E1","F1","G1"};
-			ship2.setType("submarine");
+			ship2.setType(ShipTypeConstants.SUBMARINE);
 			ship2.addLocations(locations2);
 			String[] locations3 = {"B4","B5"};
-			ship3.setType("patrolboat");
+			ship3.setType(ShipTypeConstants.PATROLBOAT);
 			ship3.addLocations(locations3);
 			String[] locations4 = {"B5","C5","D5"};
-			ship4.setType("destroyer");
+			ship4.setType(ShipTypeConstants.DESTROYER);
 			ship4.addLocations(locations4);
 			String[] locations5 = {"F1","F2"};
-			ship5.setType("patrolboat");
+			ship5.setType(ShipTypeConstants.PATROLBOAT);
 			ship5.addLocations(locations5);
 			String[] locations6 = {"B5","C5","D5"};
-			ship6.setType("destroyer");
+			ship6.setType(ShipTypeConstants.DESTROYER);
 			ship6.addLocations(locations6);
 			String[] locations7 = {"C6","C7"};
-			ship7.setType("patrolboat");
+			ship7.setType(ShipTypeConstants.PATROLBOAT);
 			ship7.addLocations(locations7);
 			String[] locations8 = {"A2","A3","A4"};
-			ship8.setType("submarine");
+			ship8.setType(ShipTypeConstants.SUBMARINE);
 			ship8.addLocations(locations8);
 			String[] locations9 = {"G6","H6"};
-			ship9.setType("patrolboat");
+			ship9.setType(ShipTypeConstants.PATROLBOAT);
 			ship9.addLocations(locations9);
 			String[] locations10 = {"B5","C5","D5"};
-			ship10.setType("destroyer");
+			ship10.setType(ShipTypeConstants.DESTROYER);
 			ship10.addLocations(locations10);
 			String[] locations11 = {"C6","C7"};
-			ship11.setType("patrolboat");
+			ship11.setType(ShipTypeConstants.PATROLBOAT);
 			ship11.addLocations(locations11);
 			String[] locations12 = {"A2","A3","A4"};
-			ship12.setType("submarine");
+			ship12.setType(ShipTypeConstants.SUBMARINE);
 			ship12.addLocations(locations12);
 			String[] locations13 = {"G6","H6"};
-			ship13.setType("patrolboat");
+			ship13.setType(ShipTypeConstants.PATROLBOAT);
 			ship13.addLocations(locations13);
 			String[] locations14 = {"B5","C5","D5"};
-			ship14.setType("destroyer");
+			ship14.setType(ShipTypeConstants.DESTROYER);
 			ship14.addLocations(locations14);
 			String[] locations15 = {"C6","C7"};
-			ship15.setType("patrolboat");
+			ship15.setType(ShipTypeConstants.PATROLBOAT);
 			ship15.addLocations(locations15);
 			String[] locations16 = {"A2","A3","A4"};
-			ship16.setType("submarine");
+			ship16.setType(ShipTypeConstants.SUBMARINE);
 			ship16.addLocations(locations16);
 			String[] locations17 = {"G6","H6"};
-			ship17.setType("patrolboat");
+			ship17.setType(ShipTypeConstants.PATROLBOAT);
 			ship17.addLocations(locations17);
 			String[] locations18 = {"B5","C5","D5"};
-			ship18.setType("destroyer");
+			ship18.setType(ShipTypeConstants.DESTROYER);
 			ship18.addLocations(locations18);
 			String[] locations19 = {"C6","C7"};
-			ship19.setType("patrolboat");
+			ship19.setType(ShipTypeConstants.PATROLBOAT);
 			ship19.addLocations(locations19);
 			String[] locations20 = {"A2","A3","A4"};
-			ship20.setType("submarine");
+			ship20.setType(ShipTypeConstants.SUBMARINE);
 			ship20.addLocations(locations20);
 			String[] locations21 = {"G6","H6"};
-			ship21.setType("patrolboat");
+			ship21.setType(ShipTypeConstants.PATROLBOAT);
 			ship21.addLocations(locations21);
 			String[] locations22 = {"B5","C5","D5"};
-			ship22.setType("destroyer");
+			ship22.setType(ShipTypeConstants.DESTROYER);
 			ship22.addLocations(locations22);
 			String[] locations23 = {"C6","C7"};
-			ship23.setType("patrolboat");
+			ship23.setType(ShipTypeConstants.PATROLBOAT);
 			ship23.addLocations(locations23);
 			String[] locations24 = {"B5","C5","D5"};
-			ship24.setType("destroyer");
+			ship24.setType(ShipTypeConstants.DESTROYER);
 			ship24.addLocations(locations24);
 			String[] locations25 = {"C6","C7"};
-			ship25.setType("patrolboat");
+			ship25.setType(ShipTypeConstants.PATROLBOAT);
 			ship25.addLocations(locations25);
 			String[] locations26 = {"A2","A3","A4"};
-			ship26.setType("submarine");
+			ship26.setType(ShipTypeConstants.SUBMARINE);
 			ship26.addLocations(locations26);
 			String[] locations27 = {"G6","H6"};
-			ship27.setType("patrolboat");
+			ship27.setType(ShipTypeConstants.PATROLBOAT);
 			ship27.addLocations(locations27);
 
 			ship1	.setGamePlayer(	gamePlayer1	);

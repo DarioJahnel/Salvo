@@ -11,7 +11,7 @@ public class GamePlayer {
     //Propiedades
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long Id;
+    private Long id;
 
 
     //cada gameplayer tiene 1 player y 1 game
@@ -24,13 +24,14 @@ public class GamePlayer {
     @JoinColumn(name = "game_id")
     private Game game;
 
-    @OneToMany(mappedBy="gamePlayer",fetch=FetchType.EAGER)
+    // Cascade se usa para que hibernate guarde lo necesario cuando se guarda gameplayer, en este caso salvoes y ships
+    @OneToMany(mappedBy="gamePlayer",fetch=FetchType.EAGER,cascade = CascadeType.ALL)
     Set<Ship> ships;
 
-    @OneToMany(mappedBy="gamePlayer",fetch=FetchType.EAGER)
+    @OneToMany(mappedBy="gamePlayer",fetch=FetchType.EAGER,cascade = CascadeType.ALL)
     Set<Salvo> salvoes;
 
-    private Date creationDate;
+    private Date joinDate;
 
     private GameState gameState;
 
@@ -39,15 +40,15 @@ public class GamePlayer {
     //Constructores
     public GamePlayer(){
 
-        this.salvoes = Collections.EMPTY_SET;
+
+        this.salvoes = Collections.emptySet();
     }
 
     public GamePlayer(Player jugador, Game partida){
 
         this.player = jugador;
         this.game = partida;
-        this.creationDate = new Date();
-//        this.ships.addAll(barcos);
+        this.joinDate = new Date();
     }
 
 
@@ -57,7 +58,7 @@ public class GamePlayer {
 
     public Player getPlayer(){return player;}
 
-    public Long getId(){return Id;}
+    public Long getId(){return id;}
 
     public Set<Ship> getShips() {
         return ships;
@@ -73,5 +74,22 @@ public class GamePlayer {
 
     public void setGameState(GameState gameState) {
         this.gameState = gameState;
+    }
+
+    public Date getJoinDate() {
+        return joinDate;
+    }
+
+    public void addShips(List<Ship> ships){
+        for (Ship ship: ships){
+            ship.setGamePlayer(this);
+            this.ships.add(ship);
+        }
+    }
+
+    public void addSalvo(Salvo salvo, int turn){
+        salvo.setGamePlayer(this);
+        salvo.setTurn(turn);
+        this.salvoes.add(salvo);
     }
 }

@@ -14,7 +14,7 @@ public class Ship {
     //Propiedades
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long Id;
+    Long id;
 
 
     //poniendo esta anotacion hago una relacion 1(ships) a muchos (locations) sin necesitar crear una clase
@@ -48,7 +48,7 @@ public class Ship {
 
     //Getters y setters
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public List<String> getLocation() {
