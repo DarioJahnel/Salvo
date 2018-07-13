@@ -266,23 +266,23 @@ public class SalvoController {
                             hit = true;
                             hitLocations.add(salvoLocation);
                             switch (ship.getType()) {
-                                case "carrier":
+                                case ShipTypeConstants.CARRIER:
                                     carrierHits++;
                                     carrier++;
                                     break;
-                                case "battleship":
+                                case ShipTypeConstants.BATTLESHIP:
                                     battleship++;
                                     battleshipHits++;
                                     break;
-                                case "submarine":
+                                case ShipTypeConstants.SUBMARINE:
                                     submarine++;
                                     submarineHits++;
                                     break;
-                                case "destroyer":
+                                case ShipTypeConstants.DESTROYER:
                                     destroyer++;
                                     destroyerHits++;
                                     break;
-                                case "patrolboat":
+                                case ShipTypeConstants.PATROLBOAT:
                                     patrolboat++;
                                     patrolboatHits++;
                                     break;
@@ -303,7 +303,7 @@ public class SalvoController {
             damagesMap.put(ShipTypeConstants.BATTLESHIP, battleship);
             damagesMap.put(ShipTypeConstants.SUBMARINE, submarine);
             damagesMap.put(ShipTypeConstants.DESTROYER, destroyer);
-            damagesMap.put(ShipTypeConstants.DESTROYER, patrolboat);
+            damagesMap.put(ShipTypeConstants.PATROLBOAT, patrolboat);
 
             mapa.put("hitLocations", hitLocations);
             mapa.put("damages", damagesMap);

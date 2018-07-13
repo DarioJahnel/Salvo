@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d119963-8a55-4ff3-990a-0e375ee8f285" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/APIConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/GamePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/GamePlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Salvo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Salvo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Ship.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/web/js/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/web/js/game.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -70,44 +63,66 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SalvoController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SalvoController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="532" selection-start-line="532" selection-end-line="532" />
+            <state relative-caret-position="109">
+              <caret line="291" column="21" selection-start-line="291" selection-start-column="21" selection-end-line="291" selection-end-column="21" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#673#688#0" />
+                <element signature="method#getAllGames#0;class#SalvoController#0" />
+                <element signature="method#procesarPlayerAuthentication#0;class#SalvoController#0" />
+                <element signature="method#procesarGameRepo#0;class#SalvoController#0" />
+                <element signature="method#procesarGames#0;class#SalvoController#0" />
+                <element signature="method#gamesDTO#0;class#SalvoController#0" />
+                <element signature="method#procesarGamePlayer#0;class#SalvoController#0" />
+                <element signature="method#gamePlayerApiDTO#0;class#SalvoController#0" />
+                <element signature="method#scoreList#0;class#SalvoController#0" />
+                <element signature="method#scoreDTO#0;class#SalvoController#0" />
+                <element signature="method#findGamePlayer#0;class#SalvoController#0" />
+                <element signature="method#gameViewDTO#0;class#SalvoController#0" />
+                <element signature="method#checkGameState#0;class#SalvoController#0" />
+                <element signature="method#procesarGamePlayerView#0;class#SalvoController#0" />
+                <element signature="method#gamePlayerDTO#0;class#SalvoController#0" />
+                <element signature="method#playerDTO#0;class#SalvoController#0" />
+                <element signature="method#procesarShips#0;class#SalvoController#0" />
+                <element signature="method#shipDTO#0;class#SalvoController#0" />
+                <element signature="method#procesarSalvos#0;class#SalvoController#0" />
+                <element signature="method#salvoDTO#0;class#SalvoController#0" />
+                <element signature="method#leaderBoard#0;class#SalvoController#0" />
+                <element signature="method#playerScoreList#0;class#SalvoController#0" />
+                <element signature="method#playerScoreDTO#0;class#SalvoController#0" />
+                <element signature="method#playerTotalScore#0;class#SalvoController#0" />
+                <element signature="method#playerWinScore#0;class#SalvoController#0" />
+                <element signature="method#playerLossScore#0;class#SalvoController#0" />
+                <element signature="method#playerTiesScore#0;class#SalvoController#0" />
+                <element signature="method#isGuest#0;class#SalvoController#0" />
+                <element signature="method#createPlayer#0;class#SalvoController#0" />
+                <element signature="method#createGame#0;class#SalvoController#0" />
+                <element signature="method#createMap#0;class#SalvoController#0" />
+                <element signature="method#joinGame#0;class#SalvoController#0" />
+                <element signature="method#createShips#0;class#SalvoController#0" />
+                <element signature="method#getSalvoes#0;class#SalvoController#0" />
+                <element signature="method#sumatoriaHits#0;class#SalvoController#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="APIConstants.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/APIConstants.java">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+            <state relative-caret-position="527">
+              <caret line="31" column="64" selection-start-line="31" selection-start-column="64" selection-end-line="31" selection-end-column="64" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShipTypeConstants.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/ShipTypeConstants.java">
+      <file leaf-file-name="preguntas.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/preguntas.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="41">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GamePlayer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/GamePlayer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="92" column="32" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="17">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -126,7 +141,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getTurn</find>
       <find>ships de</find>
       <find>shipsJSON</find>
       <find>shipLocations</find>
@@ -156,6 +170,7 @@
       <find>APIconstant</find>
       <find>responseentity</find>
       <find>checkgamestate</find>
+      <find>cellID</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -551,7 +566,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/static/web/js/shipPlacement.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/GameState.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/web/js/game.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Game.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Player.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/Salvo.java" />
@@ -562,6 +576,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/APIConstants.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/GamePlayer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/web/js/game.js" />
       </list>
     </option>
   </component>
@@ -571,7 +586,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="15" />
     <option name="y" value="30" />
     <option name="width" value="1077" />
@@ -585,7 +600,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -618,6 +634,15 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Salvo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Salvo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Salvo" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Salvo" type="462c0819:PsiDirectoryNode" />
+              <item name="SalvoApplication.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
             <path>
               <item name="Salvo" type="b2602c69:ProjectViewProjectNode" />
@@ -657,8 +682,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -682,7 +706,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.Salvo [bootRun]">
+  <component name="RunManager" selected="Gradle.Salvo [clean]">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -832,28 +856,29 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="bottom" id="TODO" order="7" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.3291592" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5003903" side_tool="true" weight="0.1580756" />
       <window_info anchor="right" id="Maven Projects" order="9" weight="0.32955465" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49960968" weight="0.21645796" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49960968" weight="0.41502684" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3291592" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1902834" />
-      <window_info anchor="bottom" id="SonarLint" order="2" weight="0.5796064" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19352227" />
+      <window_info anchor="bottom" id="SonarLint" order="2" weight="0.7495528" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.35241503" />
       <window_info anchor="right" id="Gradle" order="6" weight="0.32874495" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info active="true" anchor="bottom" id="Debug" order="4" visible="true" weight="0.39713773" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.39713773" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
@@ -870,15 +895,14 @@
       <window_info anchor="right" id="Gradle" order="6" weight="0.32943013" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49960968" weight="0.31786942" />
       <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25604996" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
-      <window_info id="Capture Tool" order="5" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3539519" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39862543" />
@@ -886,8 +910,9 @@
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5003903" side_tool="true" weight="0.1580756" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.3281787" />
+      <window_info id="Capture Tool" order="5" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="right" id="Maven Projects" order="9" />
@@ -899,14 +924,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoController.java</url>
-          <line>513</line>
-          <properties />
-          <option name="timeStamp" value="67" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -940,13 +957,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot/1.5.15.BUILD-SNAPSHOT/d4fec38096ceb6521fa8d5eb1a0452efbe0b6657/spring-boot-1.5.15.BUILD-SNAPSHOT.jar!/org/springframework/boot/SpringApplication.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="467" selection-start-line="467" selection-end-line="467" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/js/jquery-3.3.1.min.js" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoRepository.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -968,13 +978,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/js/game_2.js" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/css/games.css" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/css/game.css" />
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="31" column="64" selection-start-line="31" selection-start-column="64" selection-end-line="31" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/../../src.zip!/java/security/Principal.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
@@ -1162,10 +1165,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="70">
           <caret line="4300" column="35" selection-start-line="4300" selection-start-column="35" selection-end-line="4300" selection-end-column="35" />
-          <folding>
-            <element signature="e#171523#171524#0" expanded="true" />
-            <element signature="e#171564#171565#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1201,13 +1200,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/js/game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-619">
-          <caret line="83" column="32" lean-forward="true" selection-start-line="83" selection-start-column="32" selection-end-line="83" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/game.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -1229,23 +1221,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/APIConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/ShipTypeConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/GamePlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
+        <state relative-caret-position="1377">
           <caret line="92" column="32" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1253,13 +1231,82 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/ShipTypeConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/APIConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/web/js/game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="270" column="18" lean-forward="true" selection-start-line="269" selection-start-column="14" selection-end-line="270" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/preguntas.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/accenture/Salvo/SalvoController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="532" selection-start-line="532" selection-end-line="532" />
+        <state relative-caret-position="109">
+          <caret line="291" column="21" selection-start-line="291" selection-start-column="21" selection-end-line="291" selection-end-column="21" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#673#688#0" />
+            <element signature="method#getAllGames#0;class#SalvoController#0" />
+            <element signature="method#procesarPlayerAuthentication#0;class#SalvoController#0" />
+            <element signature="method#procesarGameRepo#0;class#SalvoController#0" />
+            <element signature="method#procesarGames#0;class#SalvoController#0" />
+            <element signature="method#gamesDTO#0;class#SalvoController#0" />
+            <element signature="method#procesarGamePlayer#0;class#SalvoController#0" />
+            <element signature="method#gamePlayerApiDTO#0;class#SalvoController#0" />
+            <element signature="method#scoreList#0;class#SalvoController#0" />
+            <element signature="method#scoreDTO#0;class#SalvoController#0" />
+            <element signature="method#findGamePlayer#0;class#SalvoController#0" />
+            <element signature="method#gameViewDTO#0;class#SalvoController#0" />
+            <element signature="method#checkGameState#0;class#SalvoController#0" />
+            <element signature="method#procesarGamePlayerView#0;class#SalvoController#0" />
+            <element signature="method#gamePlayerDTO#0;class#SalvoController#0" />
+            <element signature="method#playerDTO#0;class#SalvoController#0" />
+            <element signature="method#procesarShips#0;class#SalvoController#0" />
+            <element signature="method#shipDTO#0;class#SalvoController#0" />
+            <element signature="method#procesarSalvos#0;class#SalvoController#0" />
+            <element signature="method#salvoDTO#0;class#SalvoController#0" />
+            <element signature="method#leaderBoard#0;class#SalvoController#0" />
+            <element signature="method#playerScoreList#0;class#SalvoController#0" />
+            <element signature="method#playerScoreDTO#0;class#SalvoController#0" />
+            <element signature="method#playerTotalScore#0;class#SalvoController#0" />
+            <element signature="method#playerWinScore#0;class#SalvoController#0" />
+            <element signature="method#playerLossScore#0;class#SalvoController#0" />
+            <element signature="method#playerTiesScore#0;class#SalvoController#0" />
+            <element signature="method#isGuest#0;class#SalvoController#0" />
+            <element signature="method#createPlayer#0;class#SalvoController#0" />
+            <element signature="method#createGame#0;class#SalvoController#0" />
+            <element signature="method#createMap#0;class#SalvoController#0" />
+            <element signature="method#joinGame#0;class#SalvoController#0" />
+            <element signature="method#createShips#0;class#SalvoController#0" />
+            <element signature="method#getSalvoes#0;class#SalvoController#0" />
+            <element signature="method#sumatoriaHits#0;class#SalvoController#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="64" selection-start-line="31" selection-start-column="64" selection-end-line="31" selection-end-column="64" />
         </state>
       </provider>
     </entry>
