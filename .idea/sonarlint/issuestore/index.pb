@@ -23,3 +23,15 @@ a
 1src/main/java/com/accenture/Salvo/GamePlayer.java,9\f\9fc87728a8a11af47dca70ffe798637293af2286
 f
 6src/main/java/com/accenture/Salvo/SalvoController.java,b\d\bdc713b30341cb249a4287d249e7c21d21f6c1db
+e
+5src/main/java/com/accenture/Salvo/GameRepository.java,b\e\bed3c40e4a9b6b2a47e323bbe2c7401442992e6a
+=
+preguntas.txt,a\b\aba19fed52e9ea4137e2a69ef5e14e15d8ed4d85
+k
+;src/main/java/com/accenture/Salvo/GamePlayerRepository.java,5\7\57daffda90f2404ef161d8572d3e01222ed9d07e
+?
+settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
+<
+build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
+Y
+)src/main/resources/application.properties,0\6\06f65155ec73600b9fc5c4dc2883d4bb84d8e284

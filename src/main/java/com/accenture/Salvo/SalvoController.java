@@ -238,6 +238,9 @@ public class SalvoController {
     private List<Map> selfopponentDTO(GamePlayer gamePlayer1, GamePlayer gamePlayer2) {
         List<Map> mapList = new ArrayList<>();
         Set<Salvo> gp2salvos = gamePlayer2.getSalvoes();
+        // Ordeno para que se muestren bien los turnos
+        List<Salvo> gp2OrderedSalvoes = gp2salvos.stream().sorted(Comparator.comparing(Salvo::getTurn)).collect(toList());
+
         int carrier = 0;
         int battleship = 0;
         int submarine = 0;
@@ -245,7 +248,7 @@ public class SalvoController {
         int patrolboat = 0;
 
 
-        for (Salvo salvo : gp2salvos) { // Cada salvo
+        for (Salvo salvo : gp2OrderedSalvoes) { // Cada salvo
             Map<String, Object> damagesMap = new HashMap<>();
             int carrierHits = 0;
             int battleshipHits = 0;
